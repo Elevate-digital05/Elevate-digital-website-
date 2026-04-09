@@ -167,7 +167,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { icon: Phone, label: "Call Us", value: "+27 71 462 1250" },
+              { icon: Phone, label: "Call Us", value: "+27 77 358 4140" },
               { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com" },
               { icon: MapPin, label: "Based In", value: "Cape Town, South Africa" },
             ].map(({ icon: Icon, label, value }) => (
