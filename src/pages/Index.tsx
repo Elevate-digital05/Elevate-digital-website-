@@ -9,7 +9,7 @@ const Index = () => {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <img src={elevateLogo} alt="Elevate" className="h-10 w-auto object-contain" />
+          <img src={elevateLogo} alt="Elevate" className="h-14 w-auto object-contain" />
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition-colors">Services</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
