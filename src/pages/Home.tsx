@@ -66,7 +66,7 @@ const Home = () => {
             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-8">
               <Link to="/contact">Start Your Project <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 border-white/20 text-white hover:bg-white/10">
+            <Button asChild variant="outline" size="lg" className="text-base px-8 border-white/60 text-white hover:bg-white/10 hover:border-white">
               <Link to="/services">Learn More</Link>
             </Button>
           </div>
