@@ -58,7 +58,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="hidden md:block">
               <CurrencySelector />
             </div>
-            <Button asChild size="sm" className="hidden md:inline-flex bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574]">
+            <Button asChild size="sm" className="hidden md:inline-flex font-semibold">
               <Link to="/contact">Get Started</Link>
             </Button>
             <button
@@ -89,7 +89,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="w-64 mt-2">
             <CurrencySelector mobile />
           </div>
-          <Button asChild size="lg" className="mt-2 bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574]">
+          <Button asChild size="lg" className="mt-2 font-semibold">
             <Link to="/contact" onClick={() => setMobileOpen(false)}>Get Started</Link>
           </Button>
         </div>
