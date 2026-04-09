@@ -7,7 +7,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 
-const ContactForm = () => {
+interface ContactFormProps {
+  selectedPlan?: string | null;
+}
+
+const ContactForm = ({ selectedPlan }: ContactFormProps) => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
@@ -16,7 +20,7 @@ const ContactForm = () => {
 
     const name = form.name.trim();
     const email = form.email.trim();
-    const message = form.message.trim();
+    let message = form.message.trim();
 
     if (!name || !email || !message) {
       toast({ title: "Please fill in all fields", variant: "destructive" });
@@ -33,6 +37,10 @@ const ContactForm = () => {
       return;
     }
 
+    if (selectedPlan) {
+      message = `[Selected Plan: ${selectedPlan}]\n\n${message}`;
+    }
+
     setLoading(true);
     const id = crypto.randomUUID();
     const { error } = await supabase
@@ -45,7 +53,6 @@ const ContactForm = () => {
       return;
     }
 
-    // Send notification email
     await supabase.functions.invoke("send-transactional-email", {
       body: {
         templateName: "contact-form-notification",
@@ -64,38 +71,15 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          placeholder="Your name"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-          maxLength={100}
-          required
-        />
+        <Input id="name" placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          type="email"
-          placeholder="you@example.com"
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          maxLength={255}
-          required
-        />
+        <Input id="email" type="email" placeholder="you@example.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} required />
       </div>
       <div className="space-y-2">
         <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
-          placeholder="Tell us about your project..."
-          value={form.message}
-          onChange={(e) => setForm({ ...form, message: e.target.value })}
-          maxLength={2000}
-          rows={5}
-          required
-        />
+        <Textarea id="message" placeholder="Tell us about your project..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={2000} rows={5} required />
       </div>
       <Button type="submit" className="w-full" disabled={loading}>
         {loading ? "Sending..." : <>Send Message <Send className="ml-2 h-4 w-4" /></>}
