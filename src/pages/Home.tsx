@@ -6,15 +6,27 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   name: "Elevate Digitals",
-  description: "Professional web design and maintenance for South African businesses",
+  description: "Professional web design and monthly maintenance for South African businesses. Modern, mobile-friendly websites delivered in 2 weeks.",
   url: "https://elevatedigitals.co.za",
   telephone: "+27773584140",
   email: "elevatedigitalwebs@gmail.com",
-  address: { "@type": "PostalAddress", addressCountry: "ZA" },
   priceRange: "R5,500 - R19,500+",
-  serviceArea: "South Africa",
+  currenciesAccepted: "ZAR",
+  paymentAccepted: "Bank Transfer, EFT",
+  areaServed: { "@type": "Country", name: "South Africa" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Website Packages",
+    itemListElement: [
+      { "@type": "Offer", name: "Starter Website Package", price: "5500", priceCurrency: "ZAR", description: "1-3 page mobile-friendly website for small businesses" },
+      { "@type": "Offer", name: "Business Website Package", price: "9500", priceCurrency: "ZAR", description: "5-7 page website with SEO, WhatsApp and Google Maps" },
+      { "@type": "Offer", name: "Pro Website Package", price: "14500", priceCurrency: "ZAR", description: "Up to 10 pages with booking system and advanced SEO" },
+      { "@type": "Offer", name: "Premium Website Package", price: "19500", priceCurrency: "ZAR", description: "Fully custom website with e-commerce and payment system" },
+    ],
+  },
+  sameAs: [],
 };
 
 const Home = () => {

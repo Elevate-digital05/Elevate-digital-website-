@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
 Sitemap: https://elevatedigitals.co.za/sitemap.xml
+LLMs: https://elevatedigitals.co.za/llms.txt
