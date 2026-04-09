@@ -273,6 +273,11 @@ const Index = () => {
               </div>
             ))}
           </div>
+
+          <div className="mt-16">
+            <h3 className="text-xl font-bold text-foreground text-center mb-8">Send Us a Message</h3>
+            <ContactForm />
+          </div>
         </div>
       </section>
 
