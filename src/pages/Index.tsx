@@ -1,9 +1,26 @@
 import elevateLogo from "@/assets/elevate-logo.png";
 import ContactForm from "@/components/ContactForm";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Globe, Wrench, ArrowRight, CheckCircle, Phone, Mail, MapPin, Star, Zap, Crown, Gem } from "lucide-react";
+import {
+  Globe,
+  Wrench,
+  ArrowRight,
+  CheckCircle,
+  Mail,
+  MapPin,
+  Star,
+  Zap,
+  Crown,
+  Gem,
+  MessageSquare,
+  Rocket,
+  Clock,
+  HeartHandshake,
+  MessageCircle,
+} from "lucide-react";
 
 const Index = () => {
   return (
@@ -24,23 +41,38 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section className="max-w-6xl mx-auto px-6 py-24 md:py-36 text-center">
-        <div className="inline-block bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full mb-6 tracking-wide uppercase">
+      <section className="max-w-6xl mx-auto px-6 pt-12 pb-20 md:pt-16 md:pb-28 text-center">
+        <div className="inline-block bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full mb-4 tracking-wide uppercase">
           Web Design &amp; Maintenance
         </div>
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight max-w-3xl mx-auto">
           We build websites that grow your business
         </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-5 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Whether you need a brand-new website or a fresh redesign, Elevate creates modern, professional sites — and keeps them running smoothly every month.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-8">
             <a href="#contact">Start Your Project <ArrowRight className="ml-2 h-4 w-4" /></a>
           </Button>
           <Button asChild variant="outline" size="lg" className="text-base px-8">
             <a href="#services">Learn More</a>
           </Button>
+        </div>
+        {/* Trust badges */}
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          {[
+            "⚡ Sites delivered in 2 weeks",
+            "📱 100% Mobile optimised",
+            "🇿🇦 South Africa based",
+          ].map((stat) => (
+            <span
+              key={stat}
+              className="inline-flex items-center rounded-full bg-accent text-accent-foreground text-xs font-medium px-4 py-1.5"
+            >
+              {stat}
+            </span>
+          ))}
         </div>
       </section>
 
@@ -50,12 +82,11 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">What We Offer</h2>
             <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-              Two simple services — everything your business needs to succeed online.
+              Modern websites that get you found online — and keep running smoothly every month.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Service 1 */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
               <CardContent className="p-8">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
@@ -76,7 +107,6 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Service 2 */}
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow bg-card">
               <CardContent className="p-8">
                 <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mb-6">
@@ -96,6 +126,85 @@ const Index = () => {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">How It Works</h2>
+            <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
+              Three simple steps to get your business online.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+            {[
+              {
+                step: 1,
+                title: "Tell Us About Your Business",
+                desc: "Fill in our quick form or WhatsApp us. We'll learn about your goals, style, and timeline.",
+              },
+              {
+                step: 2,
+                title: "We Design & Build",
+                desc: "We create your custom website and share progress with you. Most sites are ready within 2 weeks.",
+              },
+              {
+                step: 3,
+                title: "Go Live & Grow",
+                desc: "We launch your site and handle all the technical stuff. You focus on running your business.",
+              },
+            ].map(({ step, title, desc }) => (
+              <div key={step} className="text-center">
+                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-5 text-2xl font-bold">
+                  {step}
+                </div>
+                <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof / Why Choose Us */}
+      <section className="bg-muted/50 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Why Businesses Choose Elevate</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                icon: MessageSquare,
+                title: "No Tech Jargon",
+                desc: "We explain everything in plain language. You'll always know exactly what you're getting and why.",
+              },
+              {
+                icon: Rocket,
+                title: "Fast Turnaround",
+                desc: "Most websites are completed and live within 2 weeks of getting started. No long waiting periods.",
+              },
+              {
+                icon: HeartHandshake,
+                title: "Ongoing Support",
+                desc: "We don't disappear after launch. Monthly maintenance plans keep your site fast, secure, and up to date.",
+              },
+            ].map(({ icon: Icon, title, desc }) => (
+              <Card key={title} className="border-0 shadow-lg bg-card">
+                <CardContent className="p-8 text-center">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <Icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -128,7 +237,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
                   <a href="#contact">Get Started</a>
                 </Button>
               </CardContent>
@@ -177,7 +286,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
                   <a href="#contact">Get Started</a>
                 </Button>
               </CardContent>
@@ -200,7 +309,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild className="w-full bg-foreground text-background hover:bg-foreground/90">
                   <a href="#contact">Get Started</a>
                 </Button>
               </CardContent>
@@ -233,7 +342,7 @@ const Index = () => {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold">Ready to elevate your online presence?</h2>
           <p className="mt-4 text-primary-foreground/80 text-lg">
-            Let's build something great together. Get in touch and we'll have your new site up in no time.
+            Let's build something great together. We'll have your new website live within 2 weeks — guaranteed.
           </p>
           <Button asChild size="lg" variant="secondary" className="mt-8 text-base px-8 bg-white text-foreground hover:bg-white/90">
             <a href="#contact">Contact Us Today <ArrowRight className="ml-2 h-4 w-4" /></a>
@@ -252,26 +361,41 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {[
-              { icon: Phone, label: "WhatsApp Us", value: "+27 77 358 4140", href: "https://wa.me/27773584140" },
-              { icon: Phone, label: "Also Reach Us", value: "+27 65 085 8437", href: "https://wa.me/27650858437" },
-              { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com", href: "mailto:elevatedigitalwebs@gmail.com" },
-              { icon: MapPin, label: "Based In", value: "Cape Town, South Africa", href: undefined },
-            ].map(({ icon: Icon, label, value, href }) => (
-              <div key={label} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
-                  <Icon className="h-5 w-5 text-accent-foreground" />
-                </div>
-                <div className="font-semibold text-foreground">{label}</div>
-                {href ? (
-                  <a href={href} className="text-muted-foreground text-sm mt-1 hover:text-foreground transition-colors underline-offset-2 hover:underline">
-                    {value}
-                  </a>
-                ) : (
-                  <div className="text-muted-foreground text-sm mt-1">{value}</div>
-                )}
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="h-5 w-5 text-accent-foreground" />
               </div>
-            ))}
+              <div className="font-semibold text-foreground">WhatsApp Us</div>
+              <a
+                href="https://wa.me/27773584140"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground text-sm mt-1 hover:text-foreground transition-colors underline-offset-2 hover:underline"
+              >
+                +27 77 358 4140
+              </a>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <Mail className="h-5 w-5 text-accent-foreground" />
+              </div>
+              <div className="font-semibold text-foreground">Email Us</div>
+              <a
+                href="mailto:elevatedigitalwebs@gmail.com"
+                className="text-muted-foreground text-sm mt-1 hover:text-foreground transition-colors underline-offset-2 hover:underline"
+              >
+                elevatedigitalwebs@gmail.com
+              </a>
+            </div>
+
+            <div className="text-center">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
+                <MapPin className="h-5 w-5 text-accent-foreground" />
+              </div>
+              <div className="font-semibold text-foreground">Based In</div>
+              <div className="text-muted-foreground text-sm mt-1">Cape Town, South Africa</div>
+            </div>
           </div>
 
           <div className="mt-16">
@@ -286,10 +410,18 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={elevateLogo} alt="Elevate" className="h-8 w-auto object-contain" loading="lazy" />
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Elevate. All rights reserved.
+            © 2025 Elevate Digitals. All rights reserved.
           </p>
+          <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
+            <a href="#services" className="hover:text-foreground transition-colors">Services</a>
+            <a href="#pricing" className="hover:text-foreground transition-colors">Packages</a>
+            <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+          </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <WhatsAppButton />
     </div>
   );
 };
