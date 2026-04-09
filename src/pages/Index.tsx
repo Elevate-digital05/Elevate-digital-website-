@@ -103,42 +103,126 @@ const Index = () => {
       <section id="pricing" className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Simple, Honest Pricing</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Website Packages</h2>
             <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-              No hidden fees. No surprises. Just clear pricing for quality work.
+              Choose the package that fits your business. No hidden fees.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            {/* Price 1 */}
-            <Card className="border-2 border-primary/20 shadow-lg bg-card text-center">
-              <CardContent className="p-8">
-                <div className="text-xs font-semibold uppercase tracking-wider text-primary mb-4">Website Build</div>
-                <div className="text-5xl font-bold text-foreground">R10,000</div>
-                <div className="text-muted-foreground mt-2 mb-6">once-off</div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  A complete, custom-built website designed to represent your business professionally online.
-                </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* Starter */}
+            <Card className="border-2 border-border shadow-lg bg-card relative">
+              <CardContent className="p-6">
+                <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
+                  <Star className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">Starter</h3>
+                <div className="text-3xl font-bold text-foreground mt-2">R5,500</div>
+                <p className="text-muted-foreground text-xs mt-1 mb-4">Best for small businesses getting online</p>
+                <ul className="space-y-2 mb-6">
+                  {["1–3 pages (Home, About, Contact)", "Mobile-friendly design", "Basic contact form", "WhatsApp integration", "Basic SEO setup"].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild variant="outline" className="w-full">
+                  <a href="#contact">Get Started</a>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Business */}
+            <Card className="border-2 border-primary shadow-lg bg-card relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <Badge className="bg-primary text-primary-foreground text-xs">Most Popular</Badge>
+              </div>
+              <CardContent className="p-6">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Zap className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">Business</h3>
+                <div className="text-3xl font-bold text-foreground mt-2">R9,500</div>
+                <p className="text-muted-foreground text-xs mt-1 mb-4">Ideal for businesses that want to attract clients</p>
+                <ul className="space-y-2 mb-6">
+                  {["Up to 5–7 pages", "Custom modern design", "Mobile & tablet optimisation", "Enquiry/booking form", "WhatsApp integration", "Google Maps integration", "Basic SEO & speed optimisation"].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
                 <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                   <a href="#contact">Get Started</a>
                 </Button>
               </CardContent>
             </Card>
 
-            {/* Price 2 */}
-            <Card className="border-2 border-secondary/20 shadow-lg bg-card text-center">
-              <CardContent className="p-8">
-                <div className="text-xs font-semibold uppercase tracking-wider text-secondary mb-4">Monthly Maintenance</div>
-                <div className="text-5xl font-bold text-foreground">R800</div>
-                <div className="text-muted-foreground mt-2 mb-6">per month</div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  Ongoing maintenance to keep your website secure, fast, and always up-to-date.
-                </p>
-                <Button asChild variant="outline" className="w-full border-secondary text-secondary hover:bg-secondary/10">
-                  <a href="#contact">Subscribe</a>
+            {/* Pro */}
+            <Card className="border-2 border-border shadow-lg bg-card relative">
+              <CardContent className="p-6">
+                <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <Crown className="h-5 w-5 text-secondary" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">Pro</h3>
+                <div className="text-3xl font-bold text-foreground mt-2">R14,500</div>
+                <p className="text-muted-foreground text-xs mt-1 mb-4">For businesses looking to scale</p>
+                <ul className="space-y-2 mb-6">
+                  {["Up to 10 pages", "Advanced design & layout", "Booking system integration", "Advanced SEO setup", "Performance optimisation", "Analytics setup"].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-4 w-4 text-secondary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild variant="outline" className="w-full">
+                  <a href="#contact">Get Started</a>
                 </Button>
               </CardContent>
             </Card>
+
+            {/* Premium */}
+            <Card className="border-2 border-border shadow-lg bg-card relative">
+              <CardContent className="p-6">
+                <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-4">
+                  <Gem className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-bold text-foreground">Premium</h3>
+                <div className="text-3xl font-bold text-foreground mt-2">R19,500<span className="text-lg">+</span></div>
+                <p className="text-muted-foreground text-xs mt-1 mb-4">For advanced or custom needs</p>
+                <ul className="space-y-2 mb-6">
+                  {["Fully custom website", "Advanced booking/payment system", "E-commerce or membership", "Full SEO optimisation", "One month support included"].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild variant="outline" className="w-full">
+                  <a href="#contact">Get Started</a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Add-Ons */}
+          <div className="mt-16 max-w-3xl mx-auto">
+            <h3 className="text-xl font-bold text-foreground text-center mb-8">Optional Add-Ons</h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { label: "Monthly maintenance", price: "R300 – R800/mo" },
+                { label: "Hosting setup", price: "R500 once-off" },
+                { label: "Logo design", price: "R1,000 – R3,000" },
+                { label: "Additional pages", price: "R500 per page" },
+                { label: "Advanced SEO", price: "From R2,000" },
+              ].map(({ label, price }) => (
+                <div key={label} className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border border-border">
+                  <span className="text-sm font-medium text-foreground">{label}</span>
+                  <span className="text-sm text-muted-foreground font-semibold">{price}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
