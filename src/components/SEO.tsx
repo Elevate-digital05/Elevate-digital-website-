@@ -14,6 +14,12 @@ const SEO = ({ title, description, path = "/", jsonLd }: SEOProps) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
+      <meta name="robots" content="index, follow" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="language" content="English" />
+      <meta name="geo.region" content="ZA" />
+      <meta name="geo.country" content="South Africa" />
+      <meta name="category" content="Web Design, Digital Services" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
