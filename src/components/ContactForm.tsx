@@ -34,18 +34,30 @@ const ContactForm = () => {
     }
 
     setLoading(true);
+    const id = crypto.randomUUID();
     const { error } = await supabase
       .from("contact_submissions")
-      .insert({ name, email, message });
-
-    setLoading(false);
+      .insert({ id, name, email, message });
 
     if (error) {
+      setLoading(false);
       toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
-    } else {
-      toast({ title: "Message sent!", description: "We'll get back to you soon." });
-      setForm({ name: "", email: "", message: "" });
+      return;
     }
+
+    // Send notification email
+    await supabase.functions.invoke("send-transactional-email", {
+      body: {
+        templateName: "contact-form-notification",
+        recipientEmail: email,
+        idempotencyKey: `contact-notify-${id}`,
+        templateData: { name, email, message },
+      },
+    });
+
+    setLoading(false);
+    toast({ title: "Message sent!", description: "We'll get back to you soon." });
+    setForm({ name: "", email: "", message: "" });
   };
 
   return (
