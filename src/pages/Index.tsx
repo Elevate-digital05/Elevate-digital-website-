@@ -167,9 +167,9 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { icon: Phone, label: "Call Us", value: "+27 XX XXX XXXX" },
-              { icon: Mail, label: "Email Us", value: "hello@elevate.co.za" },
-              { icon: MapPin, label: "Based In", value: "South Africa" },
+              { icon: Phone, label: "Call Us", value: "+27 71 462 1250" },
+              { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com" },
+              { icon: MapPin, label: "Based In", value: "Cape Town, South Africa" },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="text-center">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
