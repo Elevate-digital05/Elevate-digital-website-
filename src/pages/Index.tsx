@@ -1,7 +1,8 @@
 import elevateLogo from "@/assets/elevate-logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Globe, Wrench, ArrowRight, CheckCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Globe, Wrench, ArrowRight, CheckCircle, Phone, Mail, MapPin, Star, Zap, Crown, Gem } from "lucide-react";
 
 const Index = () => {
   return (
