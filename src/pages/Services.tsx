@@ -112,7 +112,7 @@ const Services = () => {
               <Button asChild size="lg" variant="secondary" className="text-base px-8 bg-white text-foreground hover:bg-white/90">
                 <Link to="/packages">View Packages <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="text-base px-8 border-white/30 text-white hover:bg-white/10">
+              <Button asChild size="lg" variant="outline" className="text-base px-8 border-white/60 text-white hover:bg-white/10 hover:border-white">
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
