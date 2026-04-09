@@ -27,6 +27,8 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        "primary-glow": "hsl(var(--primary) / 0.15)",
+        "secondary-glow": "hsl(var(--secondary) / 0.15)",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
