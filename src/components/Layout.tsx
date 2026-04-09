@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import elevateLogo from "@/assets/elevate-logo.png";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CurrencySelector from "@/components/CurrencySelector";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -27,7 +28,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navbar */}
       <nav
         className={`sticky top-0 z-50 border-b transition-all duration-300 ${
           scrolled
@@ -40,7 +40,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <img src={elevateLogo} alt="Elevate Digitals logo" className="h-16 w-auto object-contain" />
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             {navLinks.map(({ to, label }) => (
               <Link
@@ -56,6 +55,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           <div className="flex items-center gap-3">
+            <div className="hidden md:block">
+              <CurrencySelector />
+            </div>
             <Button asChild size="sm" className="hidden md:inline-flex bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574]">
               <Link to="/contact">Get Started</Link>
             </Button>
@@ -70,9 +72,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </nav>
 
-      {/* Mobile overlay */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 animate-fade-in">
+        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 animate-fade-in">
           {navLinks.map(({ to, label }) => (
             <Link
               key={to}
@@ -85,18 +86,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               {label}
             </Link>
           ))}
-          <Button asChild size="lg" className="mt-4">
+          <div className="w-64 mt-2">
+            <CurrencySelector mobile />
+          </div>
+          <Button asChild size="lg" className="mt-2 bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574]">
             <Link to="/contact" onClick={() => setMobileOpen(false)}>Get Started</Link>
           </Button>
         </div>
       )}
 
-      {/* Page content with fade transition */}
       <main key={pathname} className="animate-fade-in">
         {children}
       </main>
 
-      {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={elevateLogo} alt="Elevate Digitals" className="h-8 w-auto object-contain" loading="lazy" />
