@@ -186,7 +186,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={elevateLogo} alt="Elevate" className="h-7" width={512} height={512} loading="lazy" />
+          <img src={elevateLogo} alt="Elevate" className="h-8 w-auto object-contain" loading="lazy" />
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Elevate. All rights reserved.
           </p>
