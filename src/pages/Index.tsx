@@ -252,17 +252,23 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
-              { icon: Phone, label: "Call Us", value: "+27 77 358 4140" },
-              { icon: Phone, label: "Also Reach Us", value: "+27 66 254 2107" },
-              { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com" },
-              { icon: MapPin, label: "Based In", value: "Cape Town, South Africa" },
-            ].map(({ icon: Icon, label, value }) => (
+              { icon: Phone, label: "Call Us", value: "+27 77 358 4140", href: "tel:+27773584140" },
+              { icon: Phone, label: "Also Reach Us", value: "+27 66 254 2107", href: "tel:+27662542107" },
+              { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com", href: "mailto:elevatedigitalwebs@gmail.com" },
+              { icon: MapPin, label: "Based In", value: "Cape Town, South Africa", href: undefined },
+            ].map(({ icon: Icon, label, value, href }) => (
               <div key={label} className="text-center">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mx-auto mb-4">
                   <Icon className="h-5 w-5 text-accent-foreground" />
                 </div>
                 <div className="font-semibold text-foreground">{label}</div>
-                <div className="text-muted-foreground text-sm mt-1">{value}</div>
+                {href ? (
+                  <a href={href} className="text-muted-foreground text-sm mt-1 hover:text-foreground transition-colors underline-offset-2 hover:underline">
+                    {value}
+                  </a>
+                ) : (
+                  <div className="text-muted-foreground text-sm mt-1">{value}</div>
+                )}
               </div>
             ))}
           </div>
