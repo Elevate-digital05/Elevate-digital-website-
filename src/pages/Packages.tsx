@@ -109,11 +109,9 @@ const Packages = () => {
                     <Button
                       asChild
                       className={`w-full font-semibold ${
-                        btnVariant === "dark"
-                          ? "bg-[#0f1923] text-white hover:bg-[#1a2a38]"
-                          : btnVariant === "outline"
-                          ? "border-2 border-[#4a9e8a] text-[#4a9e8a] bg-transparent hover:bg-[#4a9e8a] hover:text-white"
-                          : "bg-[#4a9e8a] text-white hover:bg-[#3d8574]"
+                        btnVariant === "outline"
+                          ? "border-2 border-black text-black bg-transparent hover:bg-black hover:text-white"
+                          : "bg-black text-white hover:bg-black/90"
                       }`}
                       variant={btnVariant === "outline" ? "outline" : "default"}
                     >
@@ -164,7 +162,7 @@ const Packages = () => {
             <p className="mt-4 text-primary-foreground/80 text-lg">
               Get in touch and we'll recommend the best option for your business.
             </p>
-            <Button asChild size="lg" className="mt-8 text-base px-8 bg-white text-[#0f1923] font-semibold hover:bg-[#f0f0f0]">
+            <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
               <Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>
