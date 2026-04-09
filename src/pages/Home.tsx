@@ -63,10 +63,10 @@ const Home = () => {
             Whether you need a brand-new website or a fresh redesign, Elevate creates modern, professional sites — and keeps them running smoothly every month.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-8">
+            <Button asChild size="lg" className="bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574] text-base px-8">
               <Link to="/contact">Start Your Project <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 border-white/60 text-white hover:bg-white/10 hover:border-white">
+            <Button asChild variant="outline" size="lg" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-[#0f1923]">
               <Link to="/services">Learn More</Link>
             </Button>
           </div>
@@ -114,7 +114,7 @@ const Home = () => {
             <p className="mt-4 text-primary-foreground/80 text-lg">
               Let's build something great together. We'll have your new website live within 2 weeks — guaranteed.
             </p>
-            <Button asChild size="lg" variant="secondary" className="mt-8 text-base px-8 bg-white text-foreground hover:bg-white/90">
+            <Button asChild size="lg" className="mt-8 text-base px-8 bg-white text-[#0f1923] font-semibold hover:bg-[#f0f0f0]">
               <Link to="/contact">Contact Us Today <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>

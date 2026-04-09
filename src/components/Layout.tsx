@@ -56,7 +56,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           <div className="flex items-center gap-3">
-            <Button asChild size="sm" className="hidden md:inline-flex">
+            <Button asChild size="sm" className="hidden md:inline-flex bg-[#4a9e8a] text-white font-semibold hover:bg-[#3d8574]">
               <Link to="/contact">Get Started</Link>
             </Button>
             <button
