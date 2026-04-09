@@ -1,0 +1,48 @@
+# Elevate Digitals — Full Business Profile
+
+## About
+Elevate Digitals is a South African web design agency that builds modern,
+professional websites for small businesses, startups, and entrepreneurs.
+We specialise in fast turnaround (2 weeks), transparent pricing, and
+ongoing monthly maintenance so clients never have to worry about the
+technical side of running a website.
+
+## Services in Detail
+
+### Website Design & Build
+We design and build custom websites from scratch or redesign outdated sites.
+Every website is mobile-responsive, SEO-optimised, and built for speed.
+Includes custom design, contact forms, WhatsApp integration, and Google Maps.
+
+### Monthly Maintenance
+We keep your website secure, updated, and running perfectly every month.
+Includes security patches, plugin updates, performance monitoring,
+content updates, and uptime guarantees.
+
+## Full Pricing
+
+### Website Packages
+| Package  | Price     | Pages     | Best For                          |
+|----------|-----------|-----------|-----------------------------------|
+| Starter  | R5,500    | 1-3 pages | Small businesses getting online   |
+| Business | R9,500    | 5-7 pages | Businesses wanting to attract clients |
+| Pro      | R14,500   | 10 pages  | Businesses looking to scale       |
+| Premium  | R19,500+  | Custom    | Advanced or custom requirements   |
+
+### Optional Add-Ons
+| Add-On              | Price              |
+|---------------------|--------------------|
+| Monthly maintenance | R300 – R800/month  |
+| Hosting setup       | R500 once-off      |
+| Logo design         | R1,000 – R3,000    |
+| Additional pages    | R500 per page      |
+| Advanced SEO        | From R2,000        |
+
+## Service Area
+Elevate Digitals serves clients across all of South Africa, operating
+primarily online with the ability to work with any business nationally.
+
+## Contact Information
+- WhatsApp: +27 77 358 4140
+- Email: elevatedigitalwebs@gmail.com
+- Website: https://elevatedigitals.co.za
