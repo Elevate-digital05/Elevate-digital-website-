@@ -9,7 +9,7 @@ const Index = () => {
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <img src={elevateLogo} alt="Elevate" className="h-9" width={512} height={512} />
+          <img src={elevateLogo} alt="Elevate" className="h-10 w-auto object-contain" />
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition-colors">Services</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
@@ -186,7 +186,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={elevateLogo} alt="Elevate" className="h-7" width={512} height={512} loading="lazy" />
+          <img src={elevateLogo} alt="Elevate" className="h-8 w-auto object-contain" loading="lazy" />
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Elevate. All rights reserved.
           </p>
