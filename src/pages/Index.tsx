@@ -250,10 +250,9 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             {[
               { icon: Phone, label: "Call Us", value: "+27 77 358 4140" },
-              { icon: Phone, label: "Call Us", value: "066 254 2107" },
               { icon: Mail, label: "Email Us", value: "elevatedigitalwebs@gmail.com" },
               { icon: MapPin, label: "Based In", value: "Cape Town, South Africa" },
             ].map(({ icon: Icon, label, value }) => (
