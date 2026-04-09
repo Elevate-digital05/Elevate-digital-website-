@@ -1,4 +1,5 @@
 import elevateLogo from "@/assets/elevate-logo.png";
+import ContactForm from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -271,6 +272,11 @@ const Index = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <h3 className="text-xl font-bold text-foreground text-center mb-8">Send Us a Message</h3>
+            <ContactForm />
           </div>
         </div>
       </section>
