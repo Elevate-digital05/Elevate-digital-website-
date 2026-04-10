@@ -34,10 +34,10 @@ const Blog = () => (
               <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
                 Web Design Tips
               </span>
-              <span className="text-xs text-muted-foreground">10 April 2025</span>
+              <span className="text-xs text-muted-foreground"><span className="text-xs text-muted-foreground">10 April 2026</span></span>
             </div>
             <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
-              How Much Does a Website Cost in South Africa in 2025?
+              How Much Does a Website Cost in South Africa in 2026?
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               If you've been Googling "how much does a website cost in South Africa", you're not alone. Here's a complete breakdown of what you can expect to pay — and what you get for your money.

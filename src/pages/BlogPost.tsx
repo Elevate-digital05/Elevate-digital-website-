@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 const BlogPost = () => (
   <>
     <SEO
-      title="How Much Does a Website Cost in South Africa in 2025? | Elevate Digitals"
+      title="How Much Does a Website Cost in South Africa in 2026? | Elevate Digitals"
       description="Complete breakdown of website costs in South Africa. From DIY builders to professional web design agencies. Packages from R5,500. No hidden fees."
       path="/blog/website-cost-south-africa"
     />
@@ -26,11 +26,11 @@ const BlogPost = () => (
             <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
               Web Design Tips
             </span>
-            <span className="text-xs text-muted-foreground">10 April 2025</span>
+            <span className="text-xs text-muted-foreground"><span className="text-xs text-muted-foreground">10 April 2026</span></span>
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-8">
-            How Much Does a Website Cost in South Africa in 2025?
+            How Much Does a Website Cost in South Africa in 2026?
           </h1>
         </AnimatedSection>
 
