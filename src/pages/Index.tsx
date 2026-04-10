@@ -410,7 +410,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <img src={elevateLogo} alt="Elevate" className="h-8 w-auto object-contain" loading="lazy" />
           <p className="text-sm text-muted-foreground">
-            © 2025 Elevate Digitals. All rights reserved.
+            © 2026 Elevate Digitals. All rights reserved.. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
             <a href="#services" className="hover:text-foreground transition-colors">Services</a>
