@@ -6,6 +6,7 @@ import { CheckCircle, X, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const plans = [
   {
@@ -15,7 +16,7 @@ const plans = [
     included: ["1–3 pages", "Mobile responsive", "Contact form", "Basic SEO setup", "WhatsApp integration", "2-week delivery"],
     excluded: ["E-commerce", "Booking system"],
     popular: false,
-    cta: "Get Started",
+    ctaKey: "nav.getStarted",
     link: "/contact?plan=Starter",
   },
   {
@@ -25,7 +26,7 @@ const plans = [
     included: ["5–7 pages", "Mobile responsive", "Contact form", "Full SEO optimisation", "WhatsApp & Maps integration", "Google Analytics setup", "2-week delivery"],
     excluded: ["E-commerce / Booking"],
     popular: true,
-    cta: "Get Started",
+    ctaKey: "nav.getStarted",
     link: "/contact?plan=Business",
   },
   {
@@ -35,7 +36,7 @@ const plans = [
     included: ["Up to 10 pages", "E-commerce or booking system", "Full SEO optimisation", "WhatsApp & Maps integration", "Google Analytics setup", "Blog setup", "Analytics + monthly report", "2-week delivery"],
     excluded: [],
     popular: false,
-    cta: "Get Started",
+    ctaKey: "nav.getStarted",
     link: "/contact?plan=Pro",
   },
   {
@@ -46,7 +47,7 @@ const plans = [
     included: [],
     excluded: [],
     popular: false,
-    cta: "Let's Talk",
+    ctaKey: "packages.letsTalk",
     link: "/contact?plan=Premium",
   },
 ];
@@ -74,6 +75,7 @@ const maintenance = [
 
 const Packages = () => {
   const { formatPrice, currency } = useCurrency();
+  const { t } = useLanguage();
 
   return (
     <>
@@ -88,23 +90,22 @@ const Packages = () => {
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
         </div>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Transparent <span className="text-primary">Packages</span></h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">{t("packages.heading")}<span className="text-primary">{t("packages.heading2")}</span></h1>
           <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            No hidden fees. No surprises. Just honest pricing for great work. All prices in ZAR.
+            {t("packages.sub")}
           </p>
         </div>
       </section>
 
-      {/* Pricing Cards */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, cta, link }, i) => (
+            {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, ctaKey, link }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
                 <Card className={`shadow-lg bg-card relative h-full transition-all duration-300 hover:border-primary/30 ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground text-xs">Most Popular</Badge>
+                      <Badge className="bg-primary text-primary-foreground text-xs">{t("packages.mostPopular")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
@@ -112,7 +113,7 @@ const Packages = () => {
                     <div className="text-3xl font-bold text-foreground mt-2">
                       {formatPrice(zarPrice)}{hasSuffix && <span className="text-lg">+</span>}
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">once-off</p>
+                    <p className="text-xs text-muted-foreground mt-1">{t("packages.onceOff")}</p>
                     <p className="text-muted-foreground text-sm mt-3 mb-5 leading-relaxed">{subtitle}</p>
                     {included.length > 0 && (
                       <ul className="space-y-2 mb-4 flex-1">
@@ -135,7 +136,7 @@ const Packages = () => {
                       asChild
                       className={`w-full font-semibold ${popular ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-black text-white hover:bg-black/90"}`}
                     >
-                      <Link to={link}>{cta}</Link>
+                      <Link to={link}>{t(ctaKey)}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -151,13 +152,12 @@ const Packages = () => {
         </div>
       </section>
 
-      {/* Monthly Maintenance */}
       <section className="py-20 md:py-28 bg-[#f8f9fa]">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Monthly Maintenance Plans</h2>
-              <p className="mt-4 text-muted-foreground text-lg">Keep your site fast, secure, and up to date.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("packages.maintenance")}</h2>
+              <p className="mt-4 text-muted-foreground text-lg">{t("packages.maintenanceSub")}</p>
             </div>
           </AnimatedSection>
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -166,7 +166,7 @@ const Packages = () => {
                 <Card className={`shadow-lg bg-card relative h-full ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground text-xs">Recommended</Badge>
+                      <Badge className="bg-primary text-primary-foreground text-xs">{t("packages.recommended")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
@@ -183,7 +183,7 @@ const Packages = () => {
                       ))}
                     </ul>
                     <Button asChild variant="outline" className="w-full font-semibold border-2">
-                      <Link to="/contact?plan=Maintenance">Get Started</Link>
+                      <Link to="/contact?plan=Maintenance">{t("nav.getStarted")}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -193,16 +193,15 @@ const Packages = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">Need something custom?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t("packages.customNeed")}</h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              We're flexible — let's talk.
+              {t("packages.flexible")}
             </p>
             <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">Get a Custom Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/contact">{t("packages.customQuote")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>
         </div>

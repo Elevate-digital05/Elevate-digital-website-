@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const posts = [
   {
@@ -54,56 +55,60 @@ const posts = [
   },
 ];
 
-const Blog = () => (
-  <>
-    <SEO
-      title="Blog & Insights | Elevate Digitals — Web Design Tips"
-      description="Web design tips, SEO advice, and digital marketing insights for South African small businesses. Stay informed with Elevate Digitals."
-      path="/blog"
-    />
+const Blog = () => {
+  const { t } = useLanguage();
 
-    <section className="bg-[#0f1923] py-16 md:py-20 text-center relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
-      </div>
-      <div className="relative max-w-6xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-white">The Elevate <span className="text-primary">Blog</span></h1>
-        <p className="mt-4 text-white/70 text-lg max-w-2xl mx-auto">
-          Practical advice to help South African businesses grow online — web design, SEO, and digital marketing tips you can actually use.
-        </p>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO
+        title="Blog & Insights | Elevate Digitals — Web Design Tips"
+        description="Web design tips, SEO advice, and digital marketing insights for South African small businesses. Stay informed with Elevate Digitals."
+        path="/blog"
+      />
 
-    <section className="py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
-            <AnimatedSection key={title} delay={i * 80}>
-              <article className="bg-card border border-border rounded-xl p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-                    {emoji} {category}
-                  </span>
-                  <span className="text-xs text-muted-foreground">{date}</span>
-                </div>
-                <h2 className="text-lg font-bold text-foreground mb-2 leading-snug">{title}</h2>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">{excerpt}</p>
-                {slug ? (
-                  <Link to={slug} className="inline-flex items-center text-sm font-semibold text-primary hover:underline">
-                    Read more <ArrowRight className="ml-1 h-3.5 w-3.5" />
-                  </Link>
-                ) : (
-                  <span className="inline-flex items-center text-sm font-medium text-muted-foreground/60">
-                    Coming soon
-                  </span>
-                )}
-              </article>
-            </AnimatedSection>
-          ))}
+      <section className="bg-[#0f1923] py-16 md:py-20 text-center relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
         </div>
-      </div>
-    </section>
-  </>
-);
+        <div className="relative max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white">{t("blog.heading")}<span className="text-primary">{t("blog.heading2")}</span></h1>
+          <p className="mt-4 text-white/70 text-lg max-w-2xl mx-auto">
+            {t("blog.sub")}
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
+              <AnimatedSection key={title} delay={i * 80}>
+                <article className="bg-card border border-border rounded-xl p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+                      {emoji} {category}
+                    </span>
+                    <span className="text-xs text-muted-foreground">{date}</span>
+                  </div>
+                  <h2 className="text-lg font-bold text-foreground mb-2 leading-snug">{title}</h2>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">{excerpt}</p>
+                  {slug ? (
+                    <Link to={slug} className="inline-flex items-center text-sm font-semibold text-primary hover:underline">
+                      {t("blog.readMore")} <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                    </Link>
+                  ) : (
+                    <span className="inline-flex items-center text-sm font-medium text-muted-foreground/60">
+                      {t("blog.comingSoon")}
+                    </span>
+                  )}
+                </article>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default Blog;

@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
   {
@@ -51,6 +52,8 @@ const services = [
 ];
 
 const Services = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <SEO
@@ -59,20 +62,18 @@ const Services = () => {
         path="/services"
       />
 
-      {/* Header */}
       <section className="bg-[#0f1923] py-16 md:py-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
         </div>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">What We <span className="text-primary">Offer</span></h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">{t("services.heading")}<span className="text-primary">{t("services.heading2")}</span></h1>
           <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            Modern websites that work — designed, built, and maintained by Elevate Digitals.
+            {t("services.sub")}
           </p>
         </div>
       </section>
 
-      {/* Services */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -99,16 +100,15 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">Not sure what you need?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t("services.notSure")}</h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              Let's chat — we'll figure it out together.
+              {t("services.letsChat")}
             </p>
             <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/contact">{t("services.freeQuote")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>
         </div>

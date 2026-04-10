@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { Send, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 declare global {
   interface Window {
@@ -32,6 +33,7 @@ const interestOptions = [
 ];
 
 const ContactForm = ({ selectedPlan }: ContactFormProps) => {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -104,8 +106,8 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
     return (
       <div className="max-w-lg mx-auto text-center py-12">
         <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
-        <h3 className="text-xl font-bold text-foreground mb-2">Message sent!</h3>
-        <p className="text-muted-foreground">We'll be in touch within 24 hours.</p>
+        <h3 className="text-xl font-bold text-foreground mb-2">{t("contact.messageSent")}</h3>
+        <p className="text-muted-foreground">{t("contact.inTouch")}</p>
       </div>
     );
   }
@@ -114,27 +116,27 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
     <form onSubmit={handleSubmit} className="space-y-4 max-w-lg mx-auto">
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="firstName">First Name *</Label>
-          <Input id="firstName" placeholder="First name" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} maxLength={50} required />
+          <Label htmlFor="firstName">{t("form.firstName")} *</Label>
+          <Input id="firstName" placeholder={t("form.firstName")} value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} maxLength={50} required />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="lastName">Last Name</Label>
-          <Input id="lastName" placeholder="Last name" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} maxLength={50} />
+          <Label htmlFor="lastName">{t("form.lastName")}</Label>
+          <Input id="lastName" placeholder={t("form.lastName")} value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} maxLength={50} />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email">Email Address *</Label>
+        <Label htmlFor="email">{t("form.email")} *</Label>
         <Input id="email" type="email" placeholder="you@example.com" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} required />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="phone">Phone Number</Label>
+        <Label htmlFor="phone">{t("form.phone")}</Label>
         <Input id="phone" type="tel" placeholder="+27 ..." value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="interest">I'm Interested In</Label>
+        <Label htmlFor="interest">{t("form.interest")}</Label>
         <Select value={form.interest} onValueChange={(val) => setForm({ ...form, interest: val })}>
           <SelectTrigger>
-            <SelectValue placeholder="Select an option..." />
+            <SelectValue placeholder={t("form.select")} />
           </SelectTrigger>
           <SelectContent>
             {interestOptions.map((opt) => (
@@ -144,11 +146,11 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
         </Select>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message">Tell Us About Your Project *</Label>
-        <Textarea id="message" placeholder="Tell us about your project, business, and what you're looking for..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={2000} rows={5} required />
+        <Label htmlFor="message">{t("form.tellUs")} *</Label>
+        <Textarea id="message" placeholder={t("form.tellUs") + "..."} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} maxLength={2000} rows={5} required />
       </div>
       <Button type="submit" className="w-full" disabled={loading}>
-        {loading ? "Sending..." : <>Send Message <Send className="ml-2 h-4 w-4" /></>}
+        {loading ? t("form.sending") : <>{t("contact.sendMessage")} <Send className="ml-2 h-4 w-4" /></>}
       </Button>
     </form>
   );

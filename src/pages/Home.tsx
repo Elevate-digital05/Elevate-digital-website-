@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -34,6 +35,8 @@ const jsonLd = {
 };
 
 const Home = () => {
+  const { t } = useLanguage();
+
   return (
     <>
       <SEO
@@ -53,24 +56,24 @@ const Home = () => {
 
         <div className="relative max-w-6xl mx-auto px-6 text-center">
           <div className="inline-block bg-primary/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-6 tracking-wide uppercase border border-primary/30">
-            Web Design Agency · South Africa
+            {t("hero.label")}
           </div>
           <h1
             className="font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto"
             style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
           >
-            Websites That{" "}
-            <span className="text-primary">Grow Your Business</span>
+            {t("hero.heading1")}
+            <span className="text-primary">{t("hero.heading2")}</span>
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            We build modern, mobile-friendly websites for South African businesses — designed to get you found, trusted, and thriving online. Packages from R5,500.
+            {t("hero.sub")}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold hover:bg-primary/90 text-base px-8">
-              <Link to="/packages">View Packages <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/packages">{t("hero.viewPackages")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-black">
-              <Link to="/services">Our Services</Link>
+              <Link to="/services">{t("hero.ourServices")}</Link>
             </Button>
           </div>
         </div>
@@ -82,27 +85,27 @@ const Home = () => {
           <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
             <div>
               <div className="text-2xl md:text-3xl font-bold text-foreground">2 wks</div>
-              <div className="text-xs text-muted-foreground mt-1">Average Turnaround</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.turnaround")}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-foreground">R5,500</div>
-              <div className="text-xs text-muted-foreground mt-1">Packages From</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.packagesFrom")}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-foreground">0</div>
-              <div className="text-xs text-muted-foreground mt-1">Hidden Fees</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.hiddenFees")}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-primary">96%</div>
-              <div className="text-xs text-muted-foreground mt-1">Performance</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.performance")}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-primary">100%</div>
-              <div className="text-xs text-muted-foreground mt-1">Accessibility</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.accessibility")}</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-primary">92%</div>
-              <div className="text-xs text-muted-foreground mt-1">Best Practices</div>
+              <div className="text-xs text-muted-foreground mt-1">{t("stats.bestPractices")}</div>
             </div>
           </div>
         </div>
@@ -113,26 +116,26 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Everything You Need to Succeed Online</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("why.heading")}</h2>
               <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
-                We combine sharp design with technical expertise to build websites that actually work for your business.
+                {t("why.sub")}
               </p>
             </div>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { emoji: "🎨", title: "Custom Design", desc: "No templates. Every site is designed from scratch to reflect your brand uniquely." },
-              { emoji: "⚡", title: "Lightning Fast", desc: "Optimised for speed so visitors stay and Google ranks you higher." },
-              { emoji: "📱", title: "Mobile First", desc: "Perfect on every screen — phone, tablet, desktop — always." },
-              { emoji: "🔍", title: "SEO Ready", desc: "Built with search engines in mind so customers can actually find you." },
-              { emoji: "🛡️", title: "Secure & Reliable", desc: "SSL, regular backups, and security updates handled for you." },
-              { emoji: "📍", title: "WhatsApp & Maps", desc: "We integrate WhatsApp chat and Google Maps so customers can reach you instantly." },
-            ].map(({ emoji, title, desc }, i) => (
-              <AnimatedSection key={title} delay={i * 100}>
+              { emoji: "🎨", titleKey: "why.customDesign", descKey: "why.customDesignDesc" },
+              { emoji: "⚡", titleKey: "why.lightningFast", descKey: "why.lightningFastDesc" },
+              { emoji: "📱", titleKey: "why.mobileFirst", descKey: "why.mobileFirstDesc" },
+              { emoji: "🔍", titleKey: "why.seoReady", descKey: "why.seoReadyDesc" },
+              { emoji: "🛡️", titleKey: "why.secure", descKey: "why.secureDesc" },
+              { emoji: "📍", titleKey: "why.whatsapp", descKey: "why.whatsappDesc" },
+            ].map(({ emoji, titleKey, descKey }, i) => (
+              <AnimatedSection key={titleKey} delay={i * 100}>
                 <div className="bg-card rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/30">
                   <div className="text-4xl mb-5">{emoji}</div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -145,23 +148,23 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Simple 4-Step Process</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("how.heading")}</h2>
             </div>
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl mx-auto">
             {[
-              { step: "01", title: "Discovery", desc: "We learn about your business, goals, and target audience." },
-              { step: "02", title: "Design", desc: "We create a stunning design tailored to your brand and customers." },
-              { step: "03", title: "Build", desc: "We develop and test your site to be fast, secure, and pixel-perfect." },
-              { step: "04", title: "Launch", desc: "We go live and provide ongoing support to keep everything running." },
-            ].map(({ step, title, desc }, i) => (
+              { step: "01", titleKey: "how.discovery", descKey: "how.discoveryDesc" },
+              { step: "02", titleKey: "how.design", descKey: "how.designDesc" },
+              { step: "03", titleKey: "how.build", descKey: "how.buildDesc" },
+              { step: "04", titleKey: "how.launch", descKey: "how.launchDesc" },
+            ].map(({ step, titleKey, descKey }, i) => (
               <AnimatedSection key={step} delay={i * 150}>
                 <div className="text-center">
                   <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-5 text-xl font-bold shadow-lg shadow-primary/30">
                     {step}
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -173,12 +176,12 @@ const Home = () => {
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to elevate your online presence?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t("cta.ready")}</h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              Let's build something great together. We'll have your new website live within 2 weeks — guaranteed.
+              {t("cta.readySub")}
             </p>
             <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">Contact Us Today <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/contact">{t("cta.contactUs")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>
         </div>
