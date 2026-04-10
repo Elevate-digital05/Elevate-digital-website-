@@ -62,7 +62,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           <div className="flex items-center gap-5">
-            <div className="hidden md:block ml-8">
+            <div className="hidden md:flex items-center gap-2 ml-8">
+              <LanguageSelector />
               <CurrencySelector />
             </div>
             <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)]">
@@ -93,7 +94,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               {label}
             </Link>
           ))}
-          <div className="w-64 mt-2">
+          <div className="w-64 mt-2 space-y-2">
+            <LanguageSelector mobile />
             <CurrencySelector mobile />
           </div>
           <Button asChild size="lg" className="mt-2 font-semibold">
