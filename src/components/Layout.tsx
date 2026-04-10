@@ -84,10 +84,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md overflow-y-auto overscroll-contain animate-fade-in"
-          style={{ WebkitOverflowScrolling: "touch" }}
+          className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md overflow-y-auto overscroll-contain animate-fade-in"
+          style={{ WebkitOverflowScrolling: "touch", top: 0 }}
         >
-          <div className="flex flex-col items-center gap-6 w-full px-6 pt-8 pb-16">
+          {/* Close bar at top */}
+          <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 bg-background/90 backdrop-blur border-b border-border">
+            <Link to="/" onClick={() => setMobileOpen(false)}>
+              <img src={elevateLogo} alt="Elevate Digitals logo" className="h-12 w-auto object-contain" />
+            </Link>
+            <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+          {/* Scrollable content */}
+          <div className="flex flex-col items-center gap-8 w-full px-6 pt-10 pb-24">
             {navLinkKeys.map(({ to, key }) => (
               <Link
                 key={to}
@@ -104,8 +114,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <LanguageSelector mobile />
               <CurrencySelector mobile />
             </div>
-            <Button asChild size="lg" className="mt-2 font-semibold">
-              <Link to="/contact" onClick={() => setMobileOpen(false)}>{t("nav.getStarted")}</Link>
+            <Button asChild size="lg" className="mt-2 font-semibold w-64">
+              <Link to="/contact" onClick={() => setMobileOpen(false)}>
+                {t("nav.getStarted")}
+              </Link>
             </Button>
           </div>
         </div>
