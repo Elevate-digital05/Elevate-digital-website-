@@ -38,14 +38,9 @@ const Contact = () => {
                 icon: MessageCircle,
                 title: "WhatsApp Us",
                 content: (
-                  <div className="flex flex-col gap-1">
-                    <a href="https://wa.me/27773584140" target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-sm hover:text-foreground transition-colors underline-offset-2 hover:underline">
-                      +27 77 358 4140
-                    </a>
                     <a href="https://wa.me/27650858437" target="_blank" rel="noopener noreferrer" className="text-muted-foreground text-sm hover:text-foreground transition-colors underline-offset-2 hover:underline">
                       +27 65 085 8437
                     </a>
-                  </div>
                 ),
               },
               {

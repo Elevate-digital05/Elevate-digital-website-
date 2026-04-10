@@ -35,12 +35,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             : "bg-background border-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-10 py-5 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 py-4 md:px-12 md:py-5 flex items-center justify-between">
           <Link to="/">
-            <img src={elevateLogo} alt="Elevate Digitals logo" className="h-20 w-auto object-contain" />
+            <img src={elevateLogo} alt="Elevate Digitals logo" className="h-[100px] w-auto object-contain" />
           </Link>
 
-          <div className="hidden md:flex items-center gap-10 text-sm font-medium">
+          <div className="hidden md:flex items-center gap-9 text-sm font-medium">
             {navLinks.map(({ to, label }) => (
               <Link
                 key={to}
@@ -54,7 +54,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div className="hidden md:block">
               <CurrencySelector />
             </div>
