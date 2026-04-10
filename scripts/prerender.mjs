@@ -22,15 +22,50 @@ if (typeof globalThis.window === "undefined") {
   globalThis.window = globalThis;
 }
 if (typeof globalThis.document === "undefined") {
+  const noop = () => {};
+  const fakeStyle = new Proxy({}, { get: () => "", has: () => true, set: () => true });
+  const fakeEl = () => ({
+    setAttribute: noop,
+    getAttribute: () => null,
+    removeAttribute: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
+    appendChild: noop,
+    removeChild: noop,
+    insertBefore: noop,
+    contains: () => false,
+    style: fakeStyle,
+    content: "",
+    href: "",
+    rel: "",
+    id: "",
+    type: "",
+    textContent: "",
+    parentNode: null,
+    remove: noop,
+    classList: { add: noop, remove: noop, contains: () => false },
+    dataset: {},
+    childNodes: [],
+    children: [],
+    firstChild: null,
+  });
   globalThis.document = {
     querySelector: () => null,
-    createElement: () => ({ setAttribute: () => {}, content: "" }),
-    head: { appendChild: () => {} },
+    querySelectorAll: () => [],
+    createElement: () => fakeEl(),
+    createTextNode: () => fakeEl(),
+    createComment: () => fakeEl(),
+    createDocumentFragment: () => ({ appendChild: noop, childNodes: [] }),
+    head: { appendChild: noop, removeChild: noop, querySelectorAll: () => [] },
+    body: { appendChild: noop, style: fakeStyle },
     getElementById: () => null,
+    getElementsByTagName: () => [],
     title: "",
-    dispatchEvent: () => {},
-    addEventListener: () => {},
-    removeEventListener: () => {},
+    dispatchEvent: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
+    documentElement: { style: fakeStyle, setAttribute: noop },
+    defaultView: globalThis,
   };
 }
 if (typeof globalThis.navigator === "undefined") {
