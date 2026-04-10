@@ -36,7 +36,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 py-4 md:px-12 md:py-5 flex items-center justify-between">
-          <Link to="/">
+          <Link to="/" className="shrink-0">
             <img src={elevateLogo} alt="Elevate Digitals logo" className="h-[100px] w-auto object-contain" />
           </Link>
 
@@ -54,8 +54,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="hidden md:block">
+          <div className="flex items-center gap-5">
+            <div className="hidden md:block ml-8">
               <CurrencySelector />
             </div>
             <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)]">
