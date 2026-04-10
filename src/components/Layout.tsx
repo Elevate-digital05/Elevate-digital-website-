@@ -27,6 +27,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => { setMobileOpen(false); window.scrollTo(0, 0); }, [pathname]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
     <div className="min-h-screen bg-background">
       <nav
