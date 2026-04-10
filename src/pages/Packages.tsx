@@ -114,6 +114,12 @@ const Packages = () => {
                           : "bg-black text-white hover:bg-black/90"
                       }`}
                       variant={btnVariant === "outline" ? "outline" : "default"}
+                      onClick={() => {
+                        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "begin_checkout", {
+                          event_category: "Pricing",
+                          event_label: name,
+                        });
+                      }}
                     >
                       <Link to={`/contact?plan=${name}`}>Get Started</Link>
                     </Button>
