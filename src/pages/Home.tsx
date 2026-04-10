@@ -10,7 +10,7 @@ const jsonLd = {
   name: "Elevate Digitals",
   description: "Professional web design and monthly maintenance for South African businesses. Modern, mobile-friendly websites delivered in 2 weeks.",
   url: "https://elevatedigitals.co.za",
-  telephone: "+27773584140",
+  telephone: "+27650858437",
   email: "elevatedigitalwebs@gmail.com",
   priceRange: "R5,500 - R19,500+",
   currenciesAccepted: "ZAR",

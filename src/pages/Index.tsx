@@ -367,12 +367,12 @@ const Index = () => {
               </div>
               <div className="font-semibold text-foreground">WhatsApp Us</div>
               <a
-                href="https://wa.me/27773584140"
+                href="https://wa.me/27650858437"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground text-sm mt-1 hover:text-foreground transition-colors underline-offset-2 hover:underline"
               >
-                +27 77 358 4140
+                +27 65 085 8437
               </a>
             </div>
 
