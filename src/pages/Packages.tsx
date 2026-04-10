@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Star, Zap, Crown, Gem, ArrowRight } from "lucide-react";
+import { CheckCircle, X, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useCurrency } from "@/contexts/CurrencyContext";
@@ -10,49 +10,66 @@ import { useCurrency } from "@/contexts/CurrencyContext";
 const plans = [
   {
     name: "Starter",
-    icon: Star,
     zarPrice: 5500,
-    subtitle: "Best for small businesses getting online",
-    features: ["1–3 pages (Home, About, Contact)", "Mobile-friendly design", "Basic contact form", "WhatsApp integration", "Basic SEO setup"],
+    subtitle: "Perfect for small businesses or sole traders who need a clean, professional online presence fast.",
+    included: ["1–3 pages", "Mobile responsive", "Contact form", "Basic SEO setup", "WhatsApp integration", "2-week delivery"],
+    excluded: ["E-commerce", "Booking system"],
     popular: false,
-    btnVariant: "outline" as const,
+    cta: "Get Started",
+    link: "/contact?plan=Starter",
   },
   {
     name: "Business",
-    icon: Zap,
     zarPrice: 9500,
-    subtitle: "Ideal for businesses that want to attract clients",
-    features: ["Up to 5–7 pages", "Custom modern design", "Mobile & tablet optimisation", "Enquiry/booking form", "WhatsApp integration", "Google Maps integration", "Basic SEO & speed optimisation"],
+    subtitle: "Our most popular package — a complete, polished website with everything you need to win online.",
+    included: ["5–7 pages", "Mobile responsive", "Contact form", "Full SEO optimisation", "WhatsApp & Maps integration", "Google Analytics setup", "2-week delivery"],
+    excluded: ["E-commerce / Booking"],
     popular: true,
-    btnVariant: "default" as const,
+    cta: "Get Started",
+    link: "/contact?plan=Business",
   },
   {
     name: "Pro",
-    icon: Crown,
     zarPrice: 14500,
-    subtitle: "For businesses looking to scale",
-    features: ["Up to 10 pages", "Advanced design & layout", "Booking system integration", "Advanced SEO setup", "Performance optimisation", "Analytics setup"],
+    subtitle: "Up to 10 pages with advanced features — ideal for growing businesses that need more room to shine.",
+    included: ["Up to 10 pages", "E-commerce or booking system", "Full SEO optimisation", "WhatsApp & Maps integration", "Google Analytics setup", "Blog setup", "Analytics + monthly report", "2-week delivery"],
+    excluded: [],
     popular: false,
-    btnVariant: "outline" as const,
+    cta: "Get Started",
+    link: "/contact?plan=Pro",
   },
   {
     name: "Premium",
-    icon: Gem,
     zarPrice: 19500,
     hasSuffix: true,
-    subtitle: "For advanced or custom needs",
-    features: ["Fully custom website", "Advanced booking/payment system", "E-commerce or membership", "Full SEO optimisation", "One month support included"],
+    subtitle: "Fully custom design & development tailored to your exact vision. No limits on pages, features, or complexity — we build exactly what you need.",
+    included: [],
+    excluded: [],
     popular: false,
-    btnVariant: "dark" as const,
+    cta: "Let's Talk",
+    link: "/contact?plan=Premium",
   },
 ];
 
-const addOns = [
-  { label: "Monthly maintenance", zarLow: 300, zarHigh: 800, suffix: "/mo" },
-  { label: "Hosting setup", zarLow: 500, suffix: " once-off" },
-  { label: "Logo design", zarLow: 1000, zarHigh: 3000 },
-  { label: "Additional pages", zarLow: 500, suffix: " per page" },
-  { label: "Advanced SEO", zarLow: 2000, prefix: "From " },
+const maintenance = [
+  {
+    name: "Basic Care",
+    price: 499,
+    popular: false,
+    features: ["Security updates", "Uptime monitoring", "Monthly backup"],
+  },
+  {
+    name: "Full Care",
+    price: 999,
+    popular: true,
+    features: ["Everything in Basic", "Content updates (2hr)", "Performance reports", "Priority support"],
+  },
+  {
+    name: "Growth Care",
+    price: 1999,
+    popular: false,
+    features: ["Everything in Full", "Content updates (6hr)", "SEO monitoring", "Monthly strategy call"],
+  },
 ];
 
 const Packages = () => {
@@ -71,17 +88,18 @@ const Packages = () => {
           <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
         </div>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Website <span className="text-primary">Packages</span></h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Transparent <span className="text-primary">Packages</span></h1>
           <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            Choose the package that fits your business. No hidden fees.
+            No hidden fees. No surprises. Just honest pricing for great work. All prices in ZAR.
           </p>
         </div>
       </section>
 
+      {/* Pricing Cards */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {plans.map(({ name, icon: Icon, zarPrice, hasSuffix, subtitle, features, popular, btnVariant }, i) => (
+            {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, cta, link }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
                 <Card className={`shadow-lg bg-card relative h-full transition-all duration-300 hover:border-primary/30 ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
                   {popular && (
@@ -90,38 +108,34 @@ const Packages = () => {
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <Icon className="h-5 w-5 text-primary" />
-                    </div>
                     <h2 className="text-lg font-bold text-foreground">{name}</h2>
                     <div className="text-3xl font-bold text-foreground mt-2">
                       {formatPrice(zarPrice)}{hasSuffix && <span className="text-lg">+</span>}
                     </div>
-                    <p className="text-muted-foreground text-xs mt-1 mb-4">{subtitle}</p>
-                    <ul className="space-y-2 mb-6 flex-1">
-                      {features.map((item) => (
-                        <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="text-xs text-muted-foreground mt-1">once-off</p>
+                    <p className="text-muted-foreground text-sm mt-3 mb-5 leading-relaxed">{subtitle}</p>
+                    {included.length > 0 && (
+                      <ul className="space-y-2 mb-4 flex-1">
+                        {included.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                            {item}
+                          </li>
+                        ))}
+                        {excluded.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground/50">
+                            <X className="h-4 w-4 text-muted-foreground/40 flex-shrink-0 mt-0.5" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {included.length === 0 && <div className="flex-1" />}
                     <Button
                       asChild
-                      className={`w-full font-semibold ${
-                        btnVariant === "outline"
-                          ? "border-2 border-black text-black bg-transparent hover:bg-black hover:text-white"
-                          : "bg-black text-white hover:bg-black/90"
-                      }`}
-                      variant={btnVariant === "outline" ? "outline" : "default"}
-                      onClick={() => {
-                        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "begin_checkout", {
-                          event_category: "Pricing",
-                          event_label: name,
-                        });
-                      }}
+                      className={`w-full font-semibold ${popular ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-black text-white hover:bg-black/90"}`}
                     >
-                      <Link to={`/contact?plan=${name}`}>Get Started</Link>
+                      <Link to={link}>{cta}</Link>
                     </Button>
                   </CardContent>
                 </Card>
@@ -129,30 +143,6 @@ const Packages = () => {
             ))}
           </div>
 
-          {/* Add-Ons */}
-          <AnimatedSection>
-            <div className="mt-16 max-w-3xl mx-auto">
-              <h2 className="text-xl font-bold text-foreground text-center mb-8">Optional Add-Ons</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
-                {addOns.map(({ label, zarLow, zarHigh, suffix, prefix }) => {
-                  let priceStr = "";
-                  if (prefix) priceStr += prefix;
-                  priceStr += formatPrice(zarLow);
-                  if (zarHigh) priceStr += ` – ${formatPrice(zarHigh)}`;
-                  if (suffix) priceStr += suffix;
-
-                  return (
-                    <div key={label} className="flex items-center justify-between p-4 rounded-lg bg-[#f8f9fa] border border-border">
-                      <span className="text-sm font-medium text-foreground">{label}</span>
-                      <span className="text-sm text-muted-foreground font-semibold">{priceStr}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Currency disclaimer */}
           {currency.code !== "ZAR" && (
             <p className="mt-8 text-center text-xs text-muted-foreground">
               Prices shown in {currency.code} are approximate conversions based on live exchange rates. All transactions are processed in ZAR.
@@ -161,15 +151,58 @@ const Packages = () => {
         </div>
       </section>
 
+      {/* Monthly Maintenance */}
+      <section className="py-20 md:py-28 bg-[#f8f9fa]">
+        <div className="max-w-6xl mx-auto px-6">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">Monthly Maintenance Plans</h2>
+              <p className="mt-4 text-muted-foreground text-lg">Keep your site fast, secure, and up to date.</p>
+            </div>
+          </AnimatedSection>
+          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {maintenance.map(({ name, price, popular, features }, i) => (
+              <AnimatedSection key={name} delay={i * 100}>
+                <Card className={`shadow-lg bg-card relative h-full ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
+                  {popular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <Badge className="bg-primary text-primary-foreground text-xs">Recommended</Badge>
+                    </div>
+                  )}
+                  <CardContent className="p-6 flex flex-col h-full">
+                    <h3 className="text-lg font-bold text-foreground">{name}</h3>
+                    <div className="text-3xl font-bold text-foreground mt-2">
+                      {formatPrice(price)}<span className="text-base font-normal text-muted-foreground">/mo</span>
+                    </div>
+                    <ul className="space-y-2 mt-5 mb-6 flex-1">
+                      {features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button asChild variant="outline" className="w-full font-semibold border-2">
+                      <Link to="/contact?plan=Maintenance">Get Started</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">Not sure which package is right?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Need something custom?</h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              Get in touch and we'll recommend the best option for your business.
+              We're flexible — let's talk.
             </p>
             <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/contact">Get a Custom Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </AnimatedSection>
         </div>

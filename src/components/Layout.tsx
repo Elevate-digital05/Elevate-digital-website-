@@ -100,17 +100,59 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         {children}
       </main>
 
-      <footer className="border-t border-border py-8">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <img src={elevateLogo} alt="Elevate Digitals" className="h-8 w-auto object-contain" loading="lazy" />
-          <p className="text-sm text-muted-foreground">
-            © 2026 Elevate Digitals. All rights reserved.. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <Link to="/services" className="hover:text-foreground transition-colors">Services</Link>
-            <Link to="/packages" className="hover:text-foreground transition-colors">Packages</Link>
-            <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
-            <Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link>
+      {/* Footer */}
+      <footer className="border-t border-border bg-[#0f1923] text-white py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-10 mb-12">
+            {/* Brand */}
+            <div className="md:col-span-1">
+              <img src={elevateLogo} alt="Elevate Digitals" className="h-12 w-auto object-contain mb-4" loading="lazy" />
+              <p className="text-white/60 text-sm leading-relaxed">
+                Modern web design for South African businesses that want to stand out and grow online. Packages from R5,500.
+              </p>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Company</h4>
+              <ul className="space-y-2 text-sm">
+                {[
+                  { to: "/", label: "Home" },
+                  { to: "/services", label: "Services" },
+                  { to: "/packages", label: "Packages" },
+                  { to: "/blog", label: "Blog" },
+                  { to: "/contact", label: "Contact" },
+                ].map(({ to, label }) => (
+                  <li key={to}><Link to={to} className="text-white/60 hover:text-white transition-colors">{label}</Link></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Services</h4>
+              <ul className="space-y-2 text-sm">
+                {["Website Design", "Monthly Maintenance", "SEO", "E-Commerce"].map((s) => (
+                  <li key={s}><Link to="/services" className="text-white/60 hover:text-white transition-colors">{s}</Link></li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Contact</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="mailto:elevatedigitalwebs@gmail.com" className="text-white/60 hover:text-white transition-colors">elevatedigitalwebs@gmail.com</a></li>
+                <li><a href="https://wa.me/27650858437" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">+27 65 085 8437</a></li>
+                <li><span className="text-white/60">elevatedigitals.co.za</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-6">
+            <p className="text-center text-sm text-white/40">
+              © 2026 Elevate Digitals. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
