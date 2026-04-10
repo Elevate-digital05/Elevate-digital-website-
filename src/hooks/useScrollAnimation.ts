@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 
 export function useScrollAnimation(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Default to true on server so prerendered HTML shows all content
+  const isSSR = typeof window === "undefined";
+  const [visible, setVisible] = useState(isSSR);
 
   useEffect(() => {
     const el = ref.current;

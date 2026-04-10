@@ -60,8 +60,10 @@ const STORAGE_KEY = "elevate-currency";
 export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [code, setCode] = useState<CurrencyCode>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved && CURRENCIES.some((c) => c.code === saved)) return saved as CurrencyCode;
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && CURRENCIES.some((c) => c.code === saved)) return saved as CurrencyCode;
+      }
     } catch {}
     return "ZAR";
   });
