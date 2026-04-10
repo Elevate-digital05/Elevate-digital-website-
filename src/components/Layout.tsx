@@ -102,26 +102,31 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-start gap-6 animate-fade-in overflow-y-auto py-24 px-6">
-          {navLinkKeys.map(({ to, key }) => (
-            <Link
-              key={to}
-              to={to}
-              onClick={() => setMobileOpen(false)}
-              className={`text-2xl font-bold transition-colors ${
-                pathname === to ? "text-primary" : "text-foreground"
-              }`}
-            >
-              {t(key)}
-            </Link>
-          ))}
-          <div className="w-64 mt-2 space-y-2">
-            <LanguageSelector mobile />
-            <CurrencySelector mobile />
+        <div
+          className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md overflow-y-auto overscroll-contain animate-fade-in"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          <div className="flex flex-col items-center gap-6 py-24 min-h-full w-full">
+            {navLinkKeys.map(({ to, key }) => (
+              <Link
+                key={to}
+                to={to}
+                onClick={() => setMobileOpen(false)}
+                className={`text-2xl font-bold transition-colors ${
+                  pathname === to ? "text-primary" : "text-foreground"
+                }`}
+              >
+                {t(key)}
+              </Link>
+            ))}
+            <div className="w-64 mt-2 space-y-2">
+              <LanguageSelector mobile />
+              <CurrencySelector mobile />
+            </div>
+            <Button asChild size="lg" className="mt-2 font-semibold">
+              <Link to="/contact" onClick={() => setMobileOpen(false)}>{t("nav.getStarted")}</Link>
+            </Button>
           </div>
-          <Button asChild size="lg" className="mt-2 font-semibold">
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>{t("nav.getStarted")}</Link>
-          </Button>
         </div>
       )}
 
