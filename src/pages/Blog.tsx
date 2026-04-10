@@ -85,7 +85,7 @@ const Blog = () => {
               <AnimatedSection key={title} delay={i * 80}>
                 <article className="bg-card border border-border rounded-xl p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
+                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full emoji">
                       {emoji} {category}
                     </span>
                     <span className="text-xs text-muted-foreground">{date}</span>

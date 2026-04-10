@@ -81,7 +81,7 @@ const Services = () => {
               <AnimatedSection key={title} delay={i * 100}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group hover:border-l-4 hover:border-l-primary h-full">
                   <CardContent className="p-8">
-                    <div className="text-3xl mb-4">{emoji}</div>
+                    <div className="text-3xl mb-4 emoji">{emoji}</div>
                     <h2 className="text-xl font-bold text-foreground mb-3">{title}</h2>
                     <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{desc}</p>
                     <ul className="space-y-2">
