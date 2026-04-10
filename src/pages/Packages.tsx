@@ -61,7 +61,7 @@ const Packages = () => {
   return (
     <>
       <SEO
-        title="Website Packages & Pricing | Elevate Digitals South Africa"
+        title="Website Packages South Africa | From R5,500 | Elevate Digitals"
         description="Transparent website pricing for South African businesses. Starter from R5,500. Business from R9,500. No hidden fees."
         path="/packages"
       />
