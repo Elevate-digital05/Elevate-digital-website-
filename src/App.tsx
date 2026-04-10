@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Packages from "./pages/Packages";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
@@ -30,8 +31,8 @@ const App = () => (
                 <Route path="/services" element={<Services />} />
                 <Route path="/packages" element={<Packages />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/website-cost-south-africa" element={<BlogPost />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
