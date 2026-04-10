@@ -1,9 +1,54 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Globe, Wrench, CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
+
+const services = [
+  {
+    emoji: "🌐",
+    title: "Website Design & Build",
+    desc: "We design and build modern, mobile-friendly websites for businesses that need a new online presence — or a complete refresh of an outdated site.",
+    items: ["Custom modern design", "Mobile responsive", "Fast & SEO-friendly", "New sites or redesigns", "Contact forms & CTAs"],
+  },
+  {
+    emoji: "🔧",
+    title: "Monthly Maintenance",
+    desc: "Keep your website secure, updated, and running perfectly. We handle the technical side so you can focus on growing your business.",
+    items: ["Security updates", "Performance monitoring", "Content updates", "Uptime guaranteed", "Monthly reports"],
+  },
+  {
+    emoji: "🔍",
+    title: "Search Engine Optimisation",
+    desc: "Get found on Google by the customers who matter. We optimise your site so it ranks higher and drives real organic traffic.",
+    items: ["Keyword research", "On-page SEO", "Google Business Profile setup", "Technical SEO audit", "Monthly ranking reports"],
+  },
+  {
+    emoji: "🛒",
+    title: "E-Commerce Stores",
+    desc: "Sell online with a professional shop that looks great, loads fast, and makes buying easy for your customers.",
+    items: ["Product catalogue", "Secure checkout", "Payment gateway integration", "Inventory management", "Order notifications"],
+  },
+  {
+    emoji: "✍️",
+    title: "Content & Copywriting",
+    desc: "Professional website copy written to convert visitors into customers — clear, compelling, and on-brand.",
+    items: ["Homepage & about copy", "Service page content", "SEO-optimised writing", "Blog posts", "Proofreading & editing"],
+  },
+  {
+    emoji: "📍",
+    title: "WhatsApp & Google Maps Integration",
+    desc: "Make it effortless for customers to reach you. We add a WhatsApp chat button and embed Google Maps so people can find and contact you in one tap.",
+    items: ["WhatsApp chat button", "Google Maps embed", "Click-to-call setup", "Google Business Profile link", "Mobile optimised"],
+  },
+  {
+    emoji: "📅",
+    title: "Booking Systems",
+    desc: "Let clients book appointments directly from your website — no back-and-forth needed. Perfect for salons, consultants, clinics, and service businesses.",
+    items: ["Online booking calendar", "Email confirmations", "Service & staff selection", "Mobile friendly", "Custom availability"],
+  },
+];
 
 const Services = () => {
   return (
@@ -22,7 +67,7 @@ const Services = () => {
         <div className="relative max-w-6xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white">What We <span className="text-primary">Offer</span></h1>
           <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            Modern websites that get you found online — and keep running smoothly every month.
+            Modern websites that work — designed, built, and maintained by Elevate Digitals.
           </p>
         </div>
       </section>
@@ -30,29 +75,14 @@ const Services = () => {
       {/* Services */}
       <section className="py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                icon: Globe,
-                title: "Website Design & Build",
-                desc: "We design and build modern, mobile-friendly websites for businesses that need a new online presence — or a complete refresh of an outdated site.",
-                items: ["Custom modern design", "Mobile responsive", "Fast & SEO-friendly", "New sites or redesigns"],
-              },
-              {
-                icon: Wrench,
-                title: "Monthly Maintenance",
-                desc: "Keep your website secure, updated, and running perfectly. We handle the technical side so you can focus on growing your business.",
-                items: ["Security updates", "Performance monitoring", "Content updates", "Uptime guaranteed"],
-              },
-            ].map(({ icon: Icon, title, desc, items }, i) => (
-              <AnimatedSection key={title} delay={i * 150}>
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group hover:border-l-4 hover:border-l-primary">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map(({ emoji, title, desc, items }, i) => (
+              <AnimatedSection key={title} delay={i * 100}>
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group hover:border-l-4 hover:border-l-primary h-full">
                   <CardContent className="p-8">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                      <Icon className="h-7 w-7 text-primary" />
-                    </div>
+                    <div className="text-3xl mb-4">{emoji}</div>
                     <h2 className="text-xl font-bold text-foreground mb-3">{title}</h2>
-                    <p className="text-muted-foreground leading-relaxed mb-5">{desc}</p>
+                    <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{desc}</p>
                     <ul className="space-y-2">
                       {items.map((item) => (
                         <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -69,53 +99,17 @@ const Services = () => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 md:py-28 bg-[#f8f9fa]">
-        <div className="max-w-6xl mx-auto px-6">
-          <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">How It Works</h2>
-              <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-                Three simple steps to get your business online.
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
-            {[
-              { step: 1, title: "Tell Us About Your Business", desc: "Fill in our quick form or WhatsApp us. We'll learn about your goals, style, and timeline." },
-              { step: 2, title: "We Design & Build", desc: "We create your custom website and share progress with you. Most sites are ready within 2 weeks." },
-              { step: 3, title: "Go Live & Grow", desc: "We launch your site and handle all the technical stuff. You focus on running your business." },
-            ].map(({ step, title, desc }) => (
-              <AnimatedSection key={step} delay={(step - 1) * 200}>
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-5 text-2xl font-bold shadow-lg shadow-primary/30">
-                    {step}
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="bg-primary text-primary-foreground py-20">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to get started?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">Not sure what you need?</h2>
             <p className="mt-4 text-primary-foreground/80 text-lg">
-              Check out our packages or contact us for a free quote.
+              Let's chat — we'll figure it out together.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-                <Link to="/packages">View Packages <ArrowRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-black">
-                <Link to="/contact">Contact Us</Link>
-              </Button>
-            </div>
+            <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
+              <Link to="/contact">Get a Free Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
           </AnimatedSection>
         </div>
       </section>
