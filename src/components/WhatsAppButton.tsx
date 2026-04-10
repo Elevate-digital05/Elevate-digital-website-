@@ -6,7 +6,20 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 const WhatsAppButton = () => {
+  const handleClick = () => {
+    window.gtag?.("event", "contact", {
+      event_category: "WhatsApp",
+      event_label: "WhatsApp Button Click",
+    });
+  };
+
   return (
     <TooltipProvider>
       <Tooltip>
@@ -15,6 +28,7 @@ const WhatsAppButton = () => {
             href="https://wa.me/27773584140"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleClick}
             className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-xl shadow-[#25D366]/30 transition-transform hover:scale-110"
             style={{ backgroundColor: "#25D366" }}
             aria-label="Chat with us on WhatsApp"

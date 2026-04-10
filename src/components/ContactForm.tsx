@@ -7,6 +7,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 interface ContactFormProps {
   selectedPlan?: string | null;
 }
@@ -52,6 +58,11 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
       toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
       return;
     }
+
+    window.gtag?.("event", "generate_lead", {
+      event_category: "Contact Form",
+      event_label: "Form Submission",
+    });
 
     await supabase.functions.invoke("send-transactional-email", {
       body: {
