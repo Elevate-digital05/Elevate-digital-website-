@@ -82,6 +82,11 @@ export default {
             height: "0",
           },
         },
+        "whatsapp-pulse": {
+          "0%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)" },
+          "70%": { boxShadow: "0 0 0 10px rgba(37, 211, 102, 0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
