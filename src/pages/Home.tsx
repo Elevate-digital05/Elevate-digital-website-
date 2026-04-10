@@ -133,7 +133,7 @@ const Home = () => {
             ].map(({ emoji, titleKey, descKey }, i) => (
               <AnimatedSection key={titleKey} delay={i * 100}>
                 <div className="bg-card rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/30">
-                  <div className="text-4xl mb-5">{emoji}</div>
+                  <div className="text-4xl mb-5 emoji">{emoji}</div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
                 </div>
