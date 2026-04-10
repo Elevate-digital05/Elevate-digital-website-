@@ -87,7 +87,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md overflow-y-auto overscroll-contain animate-fade-in"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          <div className="flex flex-col items-center gap-6 py-24 min-h-full w-full">
+          <div className="flex flex-col items-center gap-6 w-full px-6 pt-8 pb-16">
             {navLinkKeys.map(({ to, key }) => (
               <Link
                 key={to}
