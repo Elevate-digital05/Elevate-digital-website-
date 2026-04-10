@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -22,6 +23,7 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <CurrencyProvider>
+        <LanguageProvider>
           <Toaster />
           <Sonner />
           <BrowserRouter>
@@ -38,6 +40,7 @@ const App = () => (
               </Routes>
             </Layout>
           </BrowserRouter>
+        </LanguageProvider>
         </CurrencyProvider>
       </TooltipProvider>
     </QueryClientProvider>

@@ -1,29 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
-
-const LANGUAGES = [
-  { code: "en", flag: "🇬🇧", name: "English" },
-  { code: "af", flag: "🇿🇦", name: "Afrikaans" },
-  { code: "zu", flag: "🇿🇦", name: "Zulu" },
-  { code: "xh", flag: "🇿🇦", name: "Xhosa" },
-  { code: "st", flag: "🇿🇦", name: "Sotho" },
-  { code: "fr", flag: "🇫🇷", name: "French" },
-  { code: "de", flag: "🇩🇪", name: "German" },
-  { code: "pt", flag: "🇵🇹", name: "Portuguese" },
-  { code: "es", flag: "🇪🇸", name: "Spanish" },
-  { code: "zh", flag: "🇨🇳", name: "Chinese" },
-] as const;
-
-type LangCode = (typeof LANGUAGES)[number]["code"];
+import { useLanguage, LANGUAGES } from "@/contexts/LanguageContext";
 
 interface LanguageSelectorProps {
   mobile?: boolean;
 }
 
 const LanguageSelector = ({ mobile = false }: LanguageSelectorProps) => {
-  const [lang, setLang] = useState<LangCode>(() => {
-    return (localStorage.getItem("preferred-lang") as LangCode) || "en";
-  });
+  const { lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,9 +21,8 @@ const LanguageSelector = ({ mobile = false }: LanguageSelectorProps) => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const handleSelect = (code: LangCode) => {
+  const handleSelect = (code: typeof lang) => {
     setLang(code);
-    localStorage.setItem("preferred-lang", code);
     setOpen(false);
   };
 

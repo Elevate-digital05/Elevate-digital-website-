@@ -6,17 +6,19 @@ import elevateLogo from "@/assets/elevate-logo.webp";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CurrencySelector from "@/components/CurrencySelector";
 import LanguageSelector from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/packages", label: "Packages" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contact", label: "Contact" },
+const navLinkKeys = [
+  { to: "/", key: "nav.home" },
+  { to: "/services", key: "nav.services" },
+  { to: "/packages", key: "nav.packages" },
+  { to: "/blog", key: "nav.blog" },
+  { to: "/contact", key: "nav.contact" },
 ];
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -67,7 +69,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </Link>
 
           <div className="hidden md:flex items-center gap-9 text-sm font-medium">
-            {navLinks.map(({ to, label }) => (
+            {navLinkKeys.map(({ to, key }) => (
               <Link
                 key={to}
                 to={to}
@@ -75,7 +77,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   pathname === to ? "text-primary after:scale-x-100" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {label}
+                {t(key)}
               </Link>
             ))}
           </div>
@@ -86,7 +88,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <CurrencySelector />
             </div>
             <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)]">
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">{t("nav.getStarted")}</Link>
             </Button>
             <button
               className="md:hidden p-2 text-foreground"
@@ -101,7 +103,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {mobileOpen && (
         <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 animate-fade-in overflow-y-auto">
-          {navLinks.map(({ to, label }) => (
+          {navLinkKeys.map(({ to, key }) => (
             <Link
               key={to}
               to={to}
@@ -110,7 +112,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 pathname === to ? "text-primary" : "text-foreground"
               }`}
             >
-              {label}
+              {t(key)}
             </Link>
           ))}
           <div className="w-64 mt-2 space-y-2">
@@ -118,7 +120,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <CurrencySelector mobile />
           </div>
           <Button asChild size="lg" className="mt-2 font-semibold">
-            <Link to="/contact" onClick={() => setMobileOpen(false)}>Get Started</Link>
+            <Link to="/contact" onClick={() => setMobileOpen(false)}>{t("nav.getStarted")}</Link>
           </Button>
         </div>
       )}
@@ -131,43 +133,38 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <footer className="border-t border-border bg-[#0f1923] text-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
-            {/* Brand */}
             <div className="md:col-span-1">
               <img src={elevateLogo} alt="Elevate Digitals" className="h-12 w-auto object-contain mb-4" loading="lazy" />
               <p className="text-white/60 text-sm leading-relaxed">
-                Modern web design for South African businesses that want to stand out and grow online. Packages from R5,500.
+                {t("footer.tagline")}
               </p>
             </div>
 
-            {/* Company */}
             <div>
-              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Company</h4>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">{t("footer.company")}</h4>
+              <ul className="space-y-2 text-sm">
+                {navLinkKeys.map(({ to, key }) => (
+                  <li key={to}><Link to={to} className="text-white/60 hover:text-white transition-colors">{t(key)}</Link></li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">{t("footer.services")}</h4>
               <ul className="space-y-2 text-sm">
                 {[
-                  { to: "/", label: "Home" },
-                  { to: "/services", label: "Services" },
-                  { to: "/packages", label: "Packages" },
-                  { to: "/blog", label: "Blog" },
-                  { to: "/contact", label: "Contact" },
-                ].map(({ to, label }) => (
-                  <li key={to}><Link to={to} className="text-white/60 hover:text-white transition-colors">{label}</Link></li>
+                  { key: "footer.websiteDesign" },
+                  { key: "footer.monthlyMaintenance" },
+                  { key: "why.seoReady", label: "SEO" },
+                  { key: "nav.services", label: "E-Commerce" },
+                ].map(({ key, label }, i) => (
+                  <li key={i}><Link to="/services" className="text-white/60 hover:text-white transition-colors">{label || t(key)}</Link></li>
                 ))}
               </ul>
             </div>
 
-            {/* Services */}
             <div>
-              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Services</h4>
-              <ul className="space-y-2 text-sm">
-                {["Website Design", "Monthly Maintenance", "SEO", "E-Commerce"].map((s) => (
-                  <li key={s}><Link to="/services" className="text-white/60 hover:text-white transition-colors">{s}</Link></li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">Contact</h4>
+              <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-white/80">{t("footer.contact")}</h4>
               <ul className="space-y-2 text-sm">
                 <li><a href="mailto:elevatedigitalwebs@gmail.com" className="text-white/60 hover:text-white transition-colors">elevatedigitalwebs@gmail.com</a></li>
                 <li><a href="https://wa.me/27650858437" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white transition-colors">+27 65 085 8437</a></li>
