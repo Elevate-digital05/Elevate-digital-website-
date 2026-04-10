@@ -102,7 +102,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-6 animate-fade-in overflow-y-auto">
+        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-md flex flex-col items-center justify-start gap-6 animate-fade-in overflow-y-auto py-24 px-6">
           {navLinkKeys.map(({ to, key }) => (
             <Link
               key={to}
