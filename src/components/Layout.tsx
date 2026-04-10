@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import elevateLogo from "@/assets/elevate-logo.png";
+import elevateLogo from "@/assets/elevate-logo.webp";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CurrencySelector from "@/components/CurrencySelector";
 

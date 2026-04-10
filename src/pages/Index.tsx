@@ -1,4 +1,4 @@
-import elevateLogo from "@/assets/elevate-logo.png";
+import elevateLogo from "@/assets/elevate-logo.webp";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
