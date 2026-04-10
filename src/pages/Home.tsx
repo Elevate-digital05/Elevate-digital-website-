@@ -40,7 +40,7 @@ const Home = () => {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0f1923] py-24 md:py-32">
+      <section className="relative overflow-hidden bg-[#0f1923] py-28 md:py-36">
         {/* Gradient mesh background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] animate-pulse" />

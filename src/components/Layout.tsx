@@ -31,16 +31,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <nav
         className={`sticky top-0 z-50 border-b transition-all duration-300 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-lg border-border shadow-sm"
+            ? "bg-background/80 backdrop-blur-lg border-border shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
             : "bg-background border-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-10 py-5 flex items-center justify-between">
           <Link to="/">
-            <img src={elevateLogo} alt="Elevate Digitals logo" className="h-16 w-auto object-contain" />
+            <img src={elevateLogo} alt="Elevate Digitals logo" className="h-20 w-auto object-contain" />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <div className="hidden md:flex items-center gap-10 text-sm font-medium">
             {navLinks.map(({ to, label }) => (
               <Link
                 key={to}
@@ -58,7 +58,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="hidden md:block">
               <CurrencySelector />
             </div>
-            <Button asChild size="sm" className="hidden md:inline-flex font-semibold">
+            <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)]">
               <Link to="/contact">Get Started</Link>
             </Button>
             <button
