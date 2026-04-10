@@ -73,12 +73,16 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
     if (parts.length) message = `${parts.join(" ")}\n\n${message}`;
 
     setLoading(true);
-    const id = crypto.randomUUID();
-    const { error } = await supabase
-      .from("contact_submissions")
-      .insert({ id, name, email, message });
 
-    if (error) {
+    try {
+      const res = await fetch("https://formspree.io/f/mqegrkbj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+    } catch {
       setLoading(false);
       toast({ title: "Something went wrong. Please try again.", variant: "destructive" });
       return;
@@ -87,15 +91,6 @@ const ContactForm = ({ selectedPlan }: ContactFormProps) => {
     window.gtag?.("event", "generate_lead", {
       event_category: "Contact Form",
       event_label: "Form Submission",
-    });
-
-    await supabase.functions.invoke("send-transactional-email", {
-      body: {
-        templateName: "contact-form-notification",
-        recipientEmail: email,
-        idempotencyKey: `contact-notify-${id}`,
-        templateData: { name, email, message },
-      },
     });
 
     setLoading(false);
