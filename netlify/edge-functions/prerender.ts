@@ -45,7 +45,7 @@ export default async function handler(req: Request, context: Context) {
   </ul>
 
   <h2>Contact</h2>
-  <p>WhatsApp: +27 77 358 4140</p>
+  <p>WhatsApp: +27 65 085 8437</p>
   <p>Email: elevatedigitalwebs@gmail.com</p>
   <a href="/contact">Get a Free Quote</a>
 </body>

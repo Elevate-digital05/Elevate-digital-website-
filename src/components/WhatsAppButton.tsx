@@ -24,7 +24,7 @@ const WhatsAppButton = () => {
       <Tooltip>
         <TooltipTrigger asChild>
           <a
-            href="https://wa.me/27773584140"
+            href="https://wa.me/27650858437"
             target="_blank"
             rel="noopener noreferrer"
             onClick={handleClick}
