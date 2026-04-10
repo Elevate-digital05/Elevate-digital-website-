@@ -9,6 +9,7 @@ import Layout from "@/components/Layout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Packages from "./pages/Packages";
+import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
@@ -28,7 +29,9 @@ const App = () => (
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/packages" element={<Packages />} />
+                <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
