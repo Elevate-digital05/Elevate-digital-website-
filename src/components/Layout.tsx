@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import elevateLogo from "@/assets/elevate-logo.webp";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CurrencySelector from "@/components/CurrencySelector";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const navLinks = [
   { to: "/", label: "Home" },
