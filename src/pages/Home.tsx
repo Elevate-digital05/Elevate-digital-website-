@@ -33,8 +33,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Elevate Digitals | Professional Web Design South Africa"
-        description="Elevate Digitals builds modern, mobile-friendly websites for South African businesses. Affordable packages from R5,500. Fast turnaround, no hidden fees."
+        title="Web Design South Africa | Elevate Digitals — From R5,500"
+        description="Professional web design for South African small businesses. Modern, mobile-friendly websites from R5,500. Based in South Africa. 2-week turnaround. WhatsApp us today."
         path="/"
         jsonLd={jsonLd}
       />

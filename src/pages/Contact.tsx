@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <>
       <SEO
-        title="Contact Elevate Digitals | Get a Free Quote"
+        title="Get a Free Quote | Web Design South Africa | Elevate Digitals"
         description="Ready to get your business online? Contact Elevate Digitals for a free quote. WhatsApp, email, or fill in our quick form."
         path="/contact"
       />

@@ -9,7 +9,7 @@ const Services = () => {
   return (
     <>
       <SEO
-        title="Web Design & Maintenance Services | Elevate Digitals"
+        title="Web Design & Maintenance Services | Elevate Digitals South Africa"
         description="Custom website design and monthly maintenance for South African businesses. Mobile-friendly, SEO-optimised, and delivered in 2 weeks."
         path="/services"
       />
