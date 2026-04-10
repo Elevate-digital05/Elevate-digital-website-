@@ -92,7 +92,7 @@ const Packages = () => {
         <div className="relative max-w-6xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white">{t("packages.heading")}<span className="text-primary">{t("packages.heading2")}</span></h1>
           <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
-            {t("packages.sub")}
+            {t("packages.sub").replace(/ZAR/g, currency.code)}
           </p>
         </div>
       </section>
