@@ -6,6 +6,44 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Polyfill browser globals for SSR
+if (typeof globalThis.localStorage === "undefined") {
+  const store = {};
+  globalThis.localStorage = {
+    getItem: (k) => store[k] ?? null,
+    setItem: (k, v) => { store[k] = String(v); },
+    removeItem: (k) => { delete store[k]; },
+    clear: () => { for (const k in store) delete store[k]; },
+    get length() { return Object.keys(store).length; },
+    key: (i) => Object.keys(store)[i] ?? null,
+  };
+}
+if (typeof globalThis.window === "undefined") {
+  globalThis.window = globalThis;
+}
+if (typeof globalThis.document === "undefined") {
+  globalThis.document = {
+    querySelector: () => null,
+    createElement: () => ({ setAttribute: () => {}, content: "" }),
+    head: { appendChild: () => {} },
+    getElementById: () => null,
+    title: "",
+    dispatchEvent: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+  };
+}
+if (typeof globalThis.navigator === "undefined") {
+  globalThis.navigator = { userAgent: "prerender" };
+}
+if (typeof globalThis.IntersectionObserver === "undefined") {
+  globalThis.IntersectionObserver = class {
+    observe() {}
+    disconnect() {}
+    unobserve() {}
+  };
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, "../dist");
 const serverEntry = path.resolve(__dirname, "../dist/server/entry-server.js");
