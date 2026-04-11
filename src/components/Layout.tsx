@@ -133,7 +133,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-20" style={{ borderTop: "3px solid hsl(14,100%,64%)" }}>
+      <footer className="bg-foreground text-white py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-1">
