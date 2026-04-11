@@ -30,14 +30,20 @@ const CurrencySelector = ({ mobile = false }: CurrencySelectorProps) => {
           <ChevronDown className={`h-5 w-5 transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
         {open && (
-          <div className="bg-card border border-border rounded-lg shadow-lg mx-4 mb-4 max-h-60 overflow-y-auto">
+          <div className="bg-card rounded-lg shadow-lg mx-4 mb-4 max-h-60 overflow-y-auto" style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
             {CURRENCIES.map((c) => (
               <button
                 key={c.code}
                 onClick={() => { setCurrency(c.code); setOpen(false); }}
-                className={`w-full text-left px-4 py-3 text-sm hover:bg-primary/10 transition-colors flex items-center gap-3 ${
-                  c.code === currency.code ? "bg-primary/10 text-primary font-semibold" : "text-foreground"
+                className={`w-full text-left px-4 py-3 text-sm transition-colors flex items-center gap-3 ${
+                  c.code === currency.code ? "font-semibold" : ""
                 }`}
+                style={{
+                  background: c.code === currency.code ? "#f5f5f7" : undefined,
+                  color: "#1d1d1f",
+                }}
+                onMouseEnter={(e) => { if (c.code !== currency.code) e.currentTarget.style.background = "#f5f5f7"; }}
+                onMouseLeave={(e) => { if (c.code !== currency.code) e.currentTarget.style.background = ""; }}
               >
                 <span>{c.flag}</span>
                 <span>{c.code}</span>
@@ -54,13 +60,14 @@ const CurrencySelector = ({ mobile = false }: CurrencySelectorProps) => {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[#4a9e8a]/30 bg-white text-sm font-medium text-[#4a9e8a] hover:border-[#4a9e8a] transition-all ${
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-sm font-medium transition-all ${
           isLoading ? "animate-pulse" : ""
         }`}
+        style={{ border: "1px solid rgba(0,0,0,0.15)", color: "#1d1d1f" }}
       >
-        {/* Rate status dot */}
         <span
-          className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-green-500" : "bg-gray-400"}`}
+          className="w-1.5 h-1.5 rounded-full"
+          style={{ background: isLive ? "#E05A2B" : "#a1a1a6" }}
           title={isLive ? "Live rates" : "Estimated rates"}
         />
         <span>{currency.flag}</span>
@@ -69,15 +76,21 @@ const CurrencySelector = ({ mobile = false }: CurrencySelectorProps) => {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl border border-border shadow-xl z-50 overflow-hidden">
+        <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-xl shadow-apple-lg z-50 overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.1)" }}>
           <div className="max-h-72 overflow-y-auto">
             {CURRENCIES.map((c) => (
               <button
                 key={c.code}
                 onClick={() => { setCurrency(c.code); setOpen(false); }}
-                className={`w-full text-left px-4 py-2.5 text-sm hover:bg-primary/10 transition-colors flex items-center gap-2.5 ${
-                  c.code === currency.code ? "bg-primary/10 text-[#4a9e8a] font-semibold" : "text-foreground"
+                className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center gap-2.5 ${
+                  c.code === currency.code ? "font-semibold" : ""
                 }`}
+                style={{
+                  background: c.code === currency.code ? "#f5f5f7" : undefined,
+                  color: "#1d1d1f",
+                }}
+                onMouseEnter={(e) => { if (c.code !== currency.code) e.currentTarget.style.background = "#f5f5f7"; }}
+                onMouseLeave={(e) => { if (c.code !== currency.code) e.currentTarget.style.background = ""; }}
               >
                 <span>{c.flag}</span>
                 <span className="font-medium">{c.code}</span>
