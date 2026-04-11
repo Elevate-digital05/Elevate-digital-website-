@@ -64,10 +64,14 @@ const Services = () => {
 
       <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-white">{t("services.heading")}<span className="text-coral">{t("services.heading2")}</span></h1>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("services.sub")}
-          </p>
+          <AnimatedSection delay={100}>
+            <h1 className="text-4xl md:text-5xl text-white">{t("services.heading")}<span className="text-coral">{t("services.heading2")}</span></h1>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("services.sub")}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -75,8 +79,8 @@ const Services = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(({ emoji, title, desc, items }, i) => (
-              <AnimatedSection key={title} delay={i * 100}>
-                <Card className="border-0 shadow-apple hover:shadow-apple-lg transition-all duration-300 bg-card group h-full rounded-[18px]" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
+              <AnimatedSection key={title} delay={i * 150} variant="slide-left">
+                <Card className="border-0 shadow-apple hover:shadow-apple-lg transition-shadow duration-300 bg-card group h-full rounded-[18px]" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <CardContent className="p-8">
                     <div className="text-3xl mb-4 emoji">{emoji}</div>
                     <h2 className="text-xl text-foreground mb-3" style={{ fontWeight: 600 }}>{title}</h2>

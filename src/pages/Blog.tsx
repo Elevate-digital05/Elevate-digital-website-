@@ -68,10 +68,14 @@ const Blog = () => {
 
       <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-white">{t("blog.heading")}<span className="text-coral">{t("blog.heading2")}</span></h1>
-          <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("blog.sub")}
-          </p>
+          <AnimatedSection delay={100}>
+            <h1 className="text-4xl md:text-5xl text-white">{t("blog.heading")}<span className="text-coral">{t("blog.heading2")}</span></h1>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("blog.sub")}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -79,8 +83,8 @@ const Blog = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
-              <AnimatedSection key={title} delay={i * 80}>
-                <article className={`bg-card rounded-[18px] p-7 transition-all duration-300 h-full flex flex-col shadow-apple hover:shadow-apple-lg ${slug ? "" : "opacity-60"}`} style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
+              <AnimatedSection key={title} delay={i * 100} variant="slide-up">
+                <article className={`bg-card rounded-[18px] p-7 transition-shadow duration-300 h-full flex flex-col shadow-apple hover:shadow-apple-lg ${slug ? "" : "opacity-60"}`} style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <div className="flex items-center gap-3 mb-3">
                     <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full emoji ${
                       ["SEO", "Marketing", "Pricing"].includes(category)

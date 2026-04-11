@@ -20,10 +20,14 @@ const Contact = () => {
 
       <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-white">{t("contact.heading1")}<span className="text-coral">{t("contact.heading2")}</span></h1>
-          <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("contact.sub")}
-          </p>
+          <AnimatedSection delay={100}>
+            <h1 className="text-4xl md:text-5xl text-white">{t("contact.heading1")}<span className="text-coral">{t("contact.heading2")}</span></h1>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="mt-4 text-lg max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("contact.sub")}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
