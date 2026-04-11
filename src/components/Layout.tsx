@@ -68,7 +68,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <LanguageSelector />
               <CurrencySelector />
             </div>
-            <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)]">
+            <Button asChild size="sm" className="hidden md:inline-flex font-semibold bg-[hsl(160,37%,46%)] text-white hover:bg-[hsl(160,37%,40%)] rounded-full">
               <Link to="/contact">{t("nav.getStarted")}</Link>
             </Button>
             <button
