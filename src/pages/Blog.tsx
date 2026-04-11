@@ -102,6 +102,7 @@ const Blog = () => {
                       {t("blog.comingSoon")}
                     </span>
                   )}
+                </article>
               </AnimatedSection>
             ))}
           </div>
