@@ -69,7 +69,7 @@ const Home = () => {
             {t("hero.sub")}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-coral text-white font-semibold hover:bg-coral-hover text-base px-8">
+            <Button asChild size="lg" className="bg-coral text-white font-semibold hover:bg-coral-hover text-base px-8 rounded-full">
               <Link to="/packages">{t("hero.viewPackages")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-black">
@@ -79,8 +79,13 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Info Strip */}
+      <section className="bg-sky-info py-3 text-center">
+        <p className="text-sm font-medium text-foreground/80">🚀 Professional websites delivered in just 2 weeks — get your free quote today!</p>
+      </section>
+
       {/* Stats Bar */}
-      <section className="bg-card border-b border-border">
+      <section className="bg-mint border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
             <div>

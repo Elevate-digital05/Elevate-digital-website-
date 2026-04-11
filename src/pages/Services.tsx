@@ -79,7 +79,7 @@ const Services = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(({ emoji, title, desc, items }, i) => (
               <AnimatedSection key={title} delay={i * 100}>
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group hover:border-l-4 hover:border-l-primary h-full">
+                <Card className={`border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group border-l-[3px] border-l-primary h-full ${i % 2 === 0 ? '' : ''}`}>
                   <CardContent className="p-8">
                     <div className="text-3xl mb-4 emoji">{emoji}</div>
                     <h2 className="text-xl font-bold text-foreground mb-3">{title}</h2>

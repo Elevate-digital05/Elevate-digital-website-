@@ -97,7 +97,7 @@ const Packages = () => {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-mint">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, ctaKey, link }, i) => (
@@ -105,7 +105,7 @@ const Packages = () => {
                 <Card className={`shadow-lg bg-card relative h-full transition-all duration-300 hover:border-primary/30 ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-coral text-white text-xs">{t("packages.mostPopular")}</Badge>
+                      <Badge className="bg-coral text-white text-xs px-3 py-1 shadow-sm ring-2 ring-blush">{t("packages.mostPopular")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
