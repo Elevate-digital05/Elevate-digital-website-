@@ -43,7 +43,7 @@ const posts = [
     date: "April 2026",
     title: "How to Use WhatsApp to Get More Customers From Your Website",
     excerpt: "A WhatsApp button on your site can be the single highest-converting element you add. Here's how to set it up right and what message to show first.",
-    slug: null,
+    slug: "/blog/whatsapp-customers-website",
   },
   {
     emoji: "📱",
@@ -51,7 +51,7 @@ const posts = [
     date: "April 2026",
     title: "Why Mobile-First Web Design Matters More in South Africa Than Anywhere Else",
     excerpt: "Over 80% of South African internet users browse on mobile. If your site isn't built for phones first, you're losing the majority of your potential customers.",
-    slug: null,
+    slug: "/blog/mobile-first-web-design-south-africa",
   },
 ];
 

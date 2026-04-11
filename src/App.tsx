@@ -12,6 +12,8 @@ import Services from "./pages/Services";
 import Packages from "./pages/Packages";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogWhatsApp from "./pages/BlogWhatsApp";
+import BlogMobileFirst from "./pages/BlogMobileFirst";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
@@ -34,6 +36,8 @@ const App = () => (
                 <Route path="/packages" element={<Packages />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/website-cost-south-africa" element={<BlogPost />} />
+                <Route path="/blog/whatsapp-customers-website" element={<BlogWhatsApp />} />
+                <Route path="/blog/mobile-first-web-design-south-africa" element={<BlogMobileFirst />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/unsubscribe" element={<Unsubscribe />} />
                 <Route path="*" element={<NotFound />} />
