@@ -85,7 +85,7 @@ const Blog = () => {
                     <span className={`text-xs font-medium px-2.5 py-0.5 rounded-full emoji ${
                       ["SEO", "Marketing", "Pricing"].includes(category)
                         ? "text-white bg-coral"
-                        : "text-primary bg-primary/10"
+                        : "text-foreground bg-apple-gray"
                     }`}>
                       {emoji} {category}
                     </span>
@@ -98,7 +98,7 @@ const Blog = () => {
                       {t("blog.readMore")} <ArrowRight className="ml-1 h-3.5 w-3.5" />
                     </Link>
                   ) : (
-                    <span className="inline-flex items-center text-xs font-medium text-white bg-muted-foreground/40 px-3 py-1 rounded-full w-fit">
+                    <span className="inline-flex items-center text-xs font-medium text-white px-3 py-1 rounded-full w-fit" style={{ background: "#1d1d1f" }}>
                       {t("blog.comingSoon")}
                     </span>
                   )}

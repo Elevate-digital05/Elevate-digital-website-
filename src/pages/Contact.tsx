@@ -68,8 +68,8 @@ const Contact = () => {
             ].map(({ icon: Icon, titleKey, content }, i) => (
               <AnimatedSection key={titleKey} delay={i * 100}>
                 <div className="bg-card rounded-[18px] p-6 text-center h-full shadow-apple" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-5 w-5 text-primary" />
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(224,90,43,0.1)" }}>
+                    <Icon className="h-5 w-5 text-coral" />
                   </div>
                   <h3 className="text-foreground mb-2" style={{ fontWeight: 600 }}>{t(titleKey)}</h3>
                   <div className="flex justify-center">{content}</div>
@@ -82,7 +82,7 @@ const Contact = () => {
             <div>
               <h2 className="text-xl text-foreground text-center mb-2" style={{ fontWeight: 600 }}>{t("contact.sendUs")}</h2>
               {plan && (
-                <p className="text-center text-primary font-medium mb-6">
+                <p className="text-center text-coral font-medium mb-6">
                   {t("form.selectedPlan")} <span style={{ fontWeight: 600 }}>{plan} {t("form.plan")}</span>
                 </p>
               )}
