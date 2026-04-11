@@ -82,7 +82,7 @@ const Contact = () => {
             <div>
               <h2 className="text-xl text-foreground text-center mb-2" style={{ fontWeight: 600 }}>{t("contact.sendUs")}</h2>
               {plan && (
-                <p className="text-center text-primary font-medium mb-6">
+                <p className="text-center text-coral font-medium mb-6">
                   {t("form.selectedPlan")} <span style={{ fontWeight: 600 }}>{plan} {t("form.plan")}</span>
                 </p>
               )}
