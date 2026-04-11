@@ -5,6 +5,32 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const posts = [
+  // PUBLISHED
+  {
+    emoji: "💰",
+    category: "Pricing",
+    date: "April 2026",
+    title: "How Much Does a Website Cost in South Africa? (2026 Guide)",
+    excerpt: "Prices vary wildly — from R2,000 to R200,000. We break down what you actually get at each price point so you can make the right call for your budget.",
+    slug: "/blog/website-cost-south-africa",
+  },
+  {
+    emoji: "💬",
+    category: "Marketing",
+    date: "April 2026",
+    title: "How to Use WhatsApp to Get More Customers From Your Website",
+    excerpt: "A WhatsApp button on your site can be the single highest-converting element you add. Here's how to set it up right and what message to show first.",
+    slug: "/blog/whatsapp-customers-website",
+  },
+  {
+    emoji: "📱",
+    category: "Mobile",
+    date: "April 2026",
+    title: "Why Mobile-First Web Design Matters More in South Africa Than Anywhere Else",
+    excerpt: "Over 80% of South African internet users browse on mobile. If your site isn't built for phones first, you're losing the majority of your potential customers.",
+    slug: "/blog/mobile-first-web-design-south-africa",
+  },
+  // COMING SOON
   {
     emoji: "🌐",
     category: "Web Design",
@@ -29,32 +55,7 @@ const posts = [
     excerpt: "Not all websites are created equal. These are the five non-negotiables that separate a website that converts visitors into customers from one that doesn't.",
     slug: null,
   },
-  {
-    emoji: "💰",
-    category: "Pricing",
-    date: "May 2026",
-    title: "How Much Does a Website Cost in South Africa? (2026 Guide)",
-    excerpt: "Prices vary wildly — from R2,000 to R200,000. We break down what you actually get at each price point so you can make the right call for your budget.",
-    slug: "/blog/website-cost-south-africa",
-  },
-  {
-    emoji: "💬",
-    category: "Marketing",
-    date: "April 2026",
-    title: "How to Use WhatsApp to Get More Customers From Your Website",
-    excerpt: "A WhatsApp button on your site can be the single highest-converting element you add. Here's how to set it up right and what message to show first.",
-    slug: "/blog/whatsapp-customers-website",
-  },
-  {
-    emoji: "📱",
-    category: "Mobile",
-    date: "April 2026",
-    title: "Why Mobile-First Web Design Matters More in South Africa Than Anywhere Else",
-    excerpt: "Over 80% of South African internet users browse on mobile. If your site isn't built for phones first, you're losing the majority of your potential customers.",
-    slug: "/blog/mobile-first-web-design-south-africa",
-  },
 ];
-
 const Blog = () => {
   const { t } = useLanguage();
 
@@ -83,7 +84,7 @@ const Blog = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
               <AnimatedSection key={title} delay={i * 80}>
-                <article className="bg-card border border-border rounded-xl p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <article className={`bg-card border border-border rounded-xl p-7 transition-all duration-300 h-full flex flex-col ${slug ? "hover:border-primary/30 hover:shadow-lg" : "opacity-60"}`}>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full emoji">
                       {emoji} {category}
@@ -97,7 +98,7 @@ const Blog = () => {
                       {t("blog.readMore")} <ArrowRight className="ml-1 h-3.5 w-3.5" />
                     </Link>
                   ) : (
-                    <span className="inline-flex items-center text-sm font-medium text-muted-foreground/60">
+                    <span className="inline-flex items-center text-xs font-semibold text-muted-foreground bg-muted px-3 py-1 rounded-full w-fit">
                       {t("blog.comingSoon")}
                     </span>
                   )}
