@@ -33,6 +33,11 @@ export default {
           DEFAULT: "hsl(var(--coral))",
           hover: "hsl(var(--coral-hover))",
         },
+        mint: "hsl(var(--mint))",
+        "sky-info": "hsl(var(--sky-info))",
+        sage: "hsl(var(--sage))",
+        blush: "hsl(var(--blush))",
+        "navy-deep": "hsl(var(--navy-deep))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
