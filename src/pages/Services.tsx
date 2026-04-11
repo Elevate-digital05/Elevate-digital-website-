@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -62,27 +62,24 @@ const Services = () => {
         path="/services"
       />
 
-      <section className="bg-[#0f1923] py-16 md:py-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
-        </div>
+      <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">{t("services.heading")}<span className="text-primary">{t("services.heading2")}</span></h1>
-          <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
+          <h1 className="text-4xl md:text-5xl text-white">{t("services.heading")}<span className="text-coral">{t("services.heading2")}</span></h1>
+          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
             {t("services.sub")}
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-28 md:py-36 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(({ emoji, title, desc, items }, i) => (
               <AnimatedSection key={title} delay={i * 100}>
-                <Card className={`border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-card group border-l-[3px] border-l-primary h-full ${i % 2 === 0 ? '' : ''}`}>
+                <Card className="border-0 shadow-apple hover:shadow-apple-lg transition-all duration-300 bg-card group h-full rounded-[18px]" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <CardContent className="p-8">
                     <div className="text-3xl mb-4 emoji">{emoji}</div>
-                    <h2 className="text-xl font-bold text-foreground mb-3">{title}</h2>
+                    <h2 className="text-xl text-foreground mb-3" style={{ fontWeight: 600 }}>{title}</h2>
                     <p className="text-muted-foreground leading-relaxed mb-5 text-sm">{desc}</p>
                     <ul className="space-y-2">
                       {items.map((item) => (
@@ -100,15 +97,15 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="bg-primary text-primary-foreground py-20">
+      <section className="bg-primary text-primary-foreground py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">{t("services.notSure")}</h2>
-            <p className="mt-4 text-primary-foreground/80 text-lg">
+            <h2 className="text-3xl md:text-4xl">{t("services.notSure")}</h2>
+            <p className="mt-4 text-primary-foreground/70 text-lg">
               {t("services.letsChat")}
             </p>
-            <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">{t("services.freeQuote")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button asChild size="lg" className="mt-10 text-[17px] px-8 bg-coral text-white font-medium hover:bg-coral-hover" style={{ borderRadius: "980px" }}>
+              <Link to="/contact">{t("services.freeQuote")}</Link>
             </Button>
           </AnimatedSection>
         </div>

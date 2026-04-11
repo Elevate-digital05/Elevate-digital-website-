@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, X, ArrowRight } from "lucide-react";
+import { CheckCircle, X } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useCurrency } from "@/contexts/CurrencyContext";
@@ -85,32 +85,29 @@ const Packages = () => {
         path="/packages"
       />
 
-      <section className="bg-[#0f1923] py-16 md:py-20 text-center relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px]" />
-        </div>
+      <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-white">{t("packages.heading")}<span className="text-primary">{t("packages.heading2")}</span></h1>
-          <p className="mt-4 text-white/70 text-lg max-w-xl mx-auto">
+          <h1 className="text-4xl md:text-5xl text-white">{t("packages.heading")}<span className="text-coral">{t("packages.heading2")}</span></h1>
+          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
             {t("packages.sub").replace(/ZAR/g, currency.code)}
           </p>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-mint">
+      <section className="py-28 md:py-36 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, ctaKey, link }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
-                <Card className={`shadow-lg bg-card relative h-full transition-all duration-300 hover:border-primary/30 ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
+                <Card className={`bg-card relative h-full transition-all duration-300 rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-primary" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-coral text-white text-xs px-3 py-1 shadow-sm ring-2 ring-blush">{t("packages.mostPopular")}</Badge>
+                      <Badge className="bg-coral text-white text-xs px-3 py-1">{t("packages.mostPopular")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
-                    <h2 className="text-lg font-bold text-foreground">{name}</h2>
-                    <div className="text-3xl font-bold text-foreground mt-2">
+                    <h2 className="text-lg text-foreground" style={{ fontWeight: 600 }}>{name}</h2>
+                    <div className="text-3xl text-foreground mt-2" style={{ fontWeight: 600 }}>
                       {formatPrice(zarPrice)}{hasSuffix && <span className="text-lg">+</span>}
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">{t("packages.onceOff")}</p>
@@ -134,7 +131,8 @@ const Packages = () => {
                     {included.length === 0 && <div className="flex-1" />}
                     <Button
                       asChild
-                      className={`w-full font-semibold ${popular ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-black text-white hover:bg-black/90"}`}
+                      className={`w-full font-medium ${popular ? "bg-coral text-white hover:bg-coral-hover" : "bg-foreground text-background hover:bg-foreground/90"}`}
+                      style={{ borderRadius: "980px" }}
                     >
                       <Link to={link}>{t(ctaKey)}</Link>
                     </Button>
@@ -152,26 +150,26 @@ const Packages = () => {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-[#f8f9fa]">
+      <section className="py-28 md:py-36 bg-apple-gray">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("packages.maintenance")}</h2>
+              <h2 className="text-3xl md:text-4xl text-foreground">{t("packages.maintenance")}</h2>
               <p className="mt-4 text-muted-foreground text-lg">{t("packages.maintenanceSub")}</p>
             </div>
           </AnimatedSection>
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {maintenance.map(({ name, price, popular, features }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
-                <Card className={`shadow-lg bg-card relative h-full ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
+                <Card className={`bg-card relative h-full rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-primary" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <Badge className="bg-primary text-primary-foreground text-xs">{t("packages.recommended")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
-                    <h3 className="text-lg font-bold text-foreground">{name}</h3>
-                    <div className="text-3xl font-bold text-foreground mt-2">
+                    <h3 className="text-lg text-foreground" style={{ fontWeight: 600 }}>{name}</h3>
+                    <div className="text-3xl text-foreground mt-2" style={{ fontWeight: 600 }}>
                       {formatPrice(price)}<span className="text-base font-normal text-muted-foreground">/mo</span>
                     </div>
                     <ul className="space-y-2 mt-5 mb-6 flex-1">
@@ -182,7 +180,7 @@ const Packages = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button asChild variant="outline" className="w-full font-semibold border-2">
+                    <Button asChild variant="outline" className="w-full font-medium border-foreground/20 hover:bg-foreground/5" style={{ borderRadius: "980px" }}>
                       <Link to="/contact?plan=Maintenance">{t("nav.getStarted")}</Link>
                     </Button>
                   </CardContent>
@@ -193,15 +191,15 @@ const Packages = () => {
         </div>
       </section>
 
-      <section className="bg-primary text-primary-foreground py-20">
+      <section className="bg-primary text-primary-foreground py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">{t("packages.customNeed")}</h2>
-            <p className="mt-4 text-primary-foreground/80 text-lg">
+            <h2 className="text-3xl md:text-4xl">{t("packages.customNeed")}</h2>
+            <p className="mt-4 text-primary-foreground/70 text-lg">
               {t("packages.flexible")}
             </p>
-            <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">{t("packages.customQuote")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button asChild size="lg" className="mt-10 text-[17px] px-8 bg-coral text-white font-medium hover:bg-coral-hover" style={{ borderRadius: "980px" }}>
+              <Link to="/contact">{t("packages.customQuote")}</Link>
             </Button>
           </AnimatedSection>
         </div>

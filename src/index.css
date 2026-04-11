@@ -1,49 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 220 20% 14%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 14%;
+    --card-foreground: 0 0% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 14%;
+    --popover-foreground: 0 0% 11%;
 
     --primary: 160 37% 46%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 12 80% 62%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 11%;
 
     --coral: 14 100% 64%;
-    --coral-hover: 14 80% 56%;
+    --coral-hover: 14 80% 52%;
 
-    --mint: 148 52% 88%;
-    --sky-info: 210 73% 94%;
-    --sage: 96 42% 91%;
-    --blush: 14 78% 95%;
-    --navy-deep: 212 44% 18%;
+    --apple-gray: 0 0% 96%;
+    --apple-text: 0 0% 11%;
+    --apple-muted: 0 0% 43%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 43%;
 
-    --accent: 160 30% 94%;
-    --accent-foreground: 160 37% 30%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
     --ring: 160 37% 46%;
 
-    --radius: 0.75rem;
+    --radius: 1.125rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -56,41 +52,39 @@
   }
 
   .dark {
-    --background: 220 20% 7%;
-    --foreground: 210 20% 96%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 96%;
 
-    --card: 220 20% 10%;
-    --card-foreground: 210 20% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 220 20% 10%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
 
     --primary: 160 37% 46%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 12 80% 62%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 96%;
 
     --coral: 14 100% 64%;
-    --coral-hover: 14 80% 56%;
+    --coral-hover: 14 80% 52%;
 
-    --mint: 148 52% 88%;
-    --sky-info: 210 73% 94%;
-    --sage: 96 42% 91%;
-    --blush: 14 78% 95%;
-    --navy-deep: 212 44% 18%;
+    --apple-gray: 0 0% 15%;
+    --apple-text: 0 0% 96%;
+    --apple-muted: 0 0% 60%;
 
-    --muted: 220 15% 16%;
-    --muted-foreground: 215 15% 60%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 160 25% 16%;
-    --accent-foreground: 160 37% 70%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
     --ring: 160 37% 46%;
 
     --sidebar-background: 240 5.9% 10%;
@@ -111,11 +105,16 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   .emoji {

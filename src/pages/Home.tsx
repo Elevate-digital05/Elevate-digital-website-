@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -47,81 +46,56 @@ const Home = () => {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0f1923] py-28 md:py-36">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/20 blur-[120px] animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/10 blur-[100px] animate-pulse" style={{ animationDelay: "1s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[140px]" />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-6 text-center">
-          <div className="inline-block bg-primary/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-6 tracking-wide uppercase border border-primary/30">
-            {t("hero.label")}
-          </div>
+      <section className="relative overflow-hidden py-32 md:py-44" style={{ background: "#1d1d1f" }}>
+        <div className="relative max-w-5xl mx-auto px-6 text-center">
           <h1
-            className="font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
+            className="tracking-tight text-white leading-tight max-w-4xl mx-auto"
+            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
           >
             {t("hero.heading1")}
-            <span className="text-primary">{t("hero.heading2")}</span>
+            <span className="text-coral">{t("hero.heading2")}</span>
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
             {t("hero.sub")}
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-coral text-white font-semibold hover:bg-coral-hover text-base px-8 rounded-full">
-              <Link to="/packages">{t("hero.viewPackages")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Button asChild size="lg" className="bg-coral text-white font-medium hover:bg-coral-hover text-[17px] px-8" style={{ borderRadius: "980px" }}>
+              <Link to="/packages">{t("hero.viewPackages")}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-black">
+            <Button asChild variant="outline" size="lg" className="text-[17px] px-8 text-coral border-coral/30 hover:bg-coral/5 font-medium" style={{ borderRadius: "980px", background: "transparent" }}>
               <Link to="/services">{t("hero.ourServices")}</Link>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Info Strip */}
-      <section className="bg-sky-info py-3 text-center">
-        <p className="text-sm font-medium text-foreground/80">🚀 Professional websites delivered in just 2 weeks — get your free quote today!</p>
-      </section>
-
       {/* Stats Bar */}
-      <section className="bg-mint border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">2 wks</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.turnaround")}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">R5,500</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.packagesFrom")}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">0</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.hiddenFees")}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">96%</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.performance")}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">100%</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.accessibility")}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold text-coral">92%</div>
-              <div className="text-xs text-muted-foreground mt-1">{t("stats.bestPractices")}</div>
-            </div>
+      <section className="bg-apple-gray">
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-8 text-center">
+            {[
+              { value: "2 wks", labelKey: "stats.turnaround" },
+              { value: "R5,500", labelKey: "stats.packagesFrom" },
+              { value: "0", labelKey: "stats.hiddenFees" },
+              { value: "96%", labelKey: "stats.performance" },
+              { value: "100%", labelKey: "stats.accessibility" },
+              { value: "92%", labelKey: "stats.bestPractices" },
+            ].map(({ value, labelKey }) => (
+              <div key={labelKey}>
+                <div className="text-2xl md:text-3xl text-foreground" style={{ fontWeight: 600 }}>{value}</div>
+                <div className="text-xs text-muted-foreground mt-1">{t(labelKey)}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Why Elevate Digitals */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-28 md:py-36 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("why.heading")}</h2>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl text-foreground">{t("why.heading")}</h2>
               <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
                 {t("why.sub")}
               </p>
@@ -137,9 +111,9 @@ const Home = () => {
               { emoji: "📍", titleKey: "why.whatsapp", descKey: "why.whatsappDesc" },
             ].map(({ emoji, titleKey, descKey }, i) => (
               <AnimatedSection key={titleKey} delay={i * 100}>
-                <div className="bg-card rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/30">
+                <div className="bg-card rounded-[18px] p-8 text-center shadow-apple transition-all duration-300 hover:shadow-apple-lg" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <div className="text-4xl mb-5 emoji">{emoji}</div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
+                  <h3 className="text-lg text-foreground mb-2" style={{ fontWeight: 600 }}>{t(titleKey)}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
                 </div>
               </AnimatedSection>
@@ -149,14 +123,14 @@ const Home = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 md:py-28 bg-[#f8f9fa]">
+      <section className="py-28 md:py-36 bg-apple-gray">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">{t("how.heading")}</h2>
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-4xl text-foreground">{t("how.heading")}</h2>
             </div>
           </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-5xl mx-auto">
             {[
               { step: "01", titleKey: "how.discovery", descKey: "how.discoveryDesc" },
               { step: "02", titleKey: "how.design", descKey: "how.designDesc" },
@@ -165,10 +139,10 @@ const Home = () => {
             ].map(({ step, titleKey, descKey }, i) => (
               <AnimatedSection key={step} delay={i * 150}>
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-coral text-white flex items-center justify-center mx-auto mb-5 text-xl font-bold shadow-lg shadow-coral/30">
+                  <div className="w-16 h-16 rounded-full bg-coral text-white flex items-center justify-center mx-auto mb-6 text-xl shadow-apple" style={{ fontWeight: 600 }}>
                     {step}
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
+                  <h3 className="text-lg text-foreground mb-2" style={{ fontWeight: 600 }}>{t(titleKey)}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
                 </div>
               </AnimatedSection>
@@ -178,15 +152,15 @@ const Home = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-primary text-primary-foreground py-20">
+      <section className="bg-primary text-primary-foreground py-28">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold">{t("cta.ready")}</h2>
-            <p className="mt-4 text-primary-foreground/80 text-lg">
+            <h2 className="text-3xl md:text-4xl">{t("cta.ready")}</h2>
+            <p className="mt-4 text-primary-foreground/70 text-lg">
               {t("cta.readySub")}
             </p>
-            <Button asChild size="lg" className="mt-8 text-base px-8 bg-black text-white font-semibold hover:bg-black/90">
-              <Link to="/contact">{t("cta.contactUs")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            <Button asChild size="lg" className="mt-10 text-[17px] px-8 bg-coral text-white font-medium hover:bg-coral-hover" style={{ borderRadius: "980px" }}>
+              <Link to="/contact">{t("cta.contactUs")}</Link>
             </Button>
           </AnimatedSection>
         </div>
