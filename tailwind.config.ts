@@ -29,6 +29,10 @@ export default {
         },
         "primary-glow": "hsl(var(--primary) / 0.15)",
         "secondary-glow": "hsl(var(--secondary) / 0.15)",
+        coral: {
+          DEFAULT: "hsl(var(--coral))",
+          hover: "hsl(var(--coral-hover))",
+        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",

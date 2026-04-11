@@ -105,7 +105,7 @@ const Packages = () => {
                 <Card className={`shadow-lg bg-card relative h-full transition-all duration-300 hover:border-primary/30 ${popular ? "border-2 border-primary" : "border-2 border-border"}`}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground text-xs">{t("packages.mostPopular")}</Badge>
+                      <Badge className="bg-coral text-white text-xs">{t("packages.mostPopular")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">

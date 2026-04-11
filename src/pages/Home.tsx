@@ -69,7 +69,7 @@ const Home = () => {
             {t("hero.sub")}
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-primary text-primary-foreground font-semibold hover:bg-primary/90 text-base px-8">
+            <Button asChild size="lg" className="bg-coral text-white font-semibold hover:bg-coral-hover text-base px-8">
               <Link to="/packages">{t("hero.viewPackages")} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-base px-8 border-2 border-white text-white font-semibold hover:bg-white hover:text-black">
@@ -84,27 +84,27 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground">2 wks</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">2 wks</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.turnaround")}</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground">R5,500</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">R5,500</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.packagesFrom")}</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-foreground">0</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">0</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.hiddenFees")}</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-primary">96%</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">96%</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.performance")}</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-primary">100%</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">100%</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.accessibility")}</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-primary">92%</div>
+              <div className="text-2xl md:text-3xl font-bold text-coral">92%</div>
               <div className="text-xs text-muted-foreground mt-1">{t("stats.bestPractices")}</div>
             </div>
           </div>
@@ -160,7 +160,7 @@ const Home = () => {
             ].map(({ step, titleKey, descKey }, i) => (
               <AnimatedSection key={step} delay={i * 150}>
                 <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-5 text-xl font-bold shadow-lg shadow-primary/30">
+                  <div className="w-16 h-16 rounded-full bg-coral text-white flex items-center justify-center mx-auto mb-5 text-xl font-bold shadow-lg shadow-coral/30">
                     {step}
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{t(titleKey)}</h3>
