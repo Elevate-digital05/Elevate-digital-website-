@@ -99,7 +99,7 @@ const Packages = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, ctaKey, link }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
-                <Card className={`bg-card relative h-full transition-all duration-300 rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-primary" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
+                <Card className={`bg-card relative h-full transition-all duration-300 rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-coral" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <Badge className="bg-coral text-white text-xs px-3 py-1">{t("packages.mostPopular")}</Badge>
@@ -116,7 +116,7 @@ const Packages = () => {
                       <ul className="space-y-2 mb-4 flex-1">
                         {included.map((item) => (
                           <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                            <CheckCircle className="h-4 w-4 text-coral flex-shrink-0 mt-0.5" />
                             {item}
                           </li>
                         ))}
@@ -131,7 +131,7 @@ const Packages = () => {
                     {included.length === 0 && <div className="flex-1" />}
                     <Button
                       asChild
-                      className={`w-full font-medium ${popular ? "bg-coral text-white hover:bg-coral-hover" : "bg-foreground text-background hover:bg-foreground/90"}`}
+                      className="w-full font-medium bg-foreground text-background hover:bg-foreground/90"
                       style={{ borderRadius: "980px" }}
                     >
                       <Link to={link}>{t(ctaKey)}</Link>
@@ -161,10 +161,10 @@ const Packages = () => {
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {maintenance.map(({ name, price, popular, features }, i) => (
               <AnimatedSection key={name} delay={i * 100}>
-                <Card className={`bg-card relative h-full rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-primary" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
+                <Card className={`bg-card relative h-full rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-coral" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge className="bg-primary text-primary-foreground text-xs">{t("packages.recommended")}</Badge>
+                      <Badge className="bg-coral text-white text-xs">{t("packages.recommended")}</Badge>
                     </div>
                   )}
                   <CardContent className="p-6 flex flex-col h-full">
@@ -175,7 +175,7 @@ const Packages = () => {
                     <ul className="space-y-2 mt-5 mb-6 flex-1">
                       {features.map((f) => (
                         <li key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="h-4 w-4 text-coral flex-shrink-0 mt-0.5" />
                           {f}
                         </li>
                       ))}
