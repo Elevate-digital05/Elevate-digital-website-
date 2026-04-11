@@ -54,8 +54,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <Link
                 key={to}
                 to={to}
-                className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 hover:after:scale-x-100 ${
-                  pathname === to ? "text-primary after:scale-x-100" : "text-muted-foreground hover:text-foreground"
+                className={`relative py-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-coral after:transition-transform after:duration-300 hover:after:scale-x-100 ${
+                  pathname === to ? "text-coral after:scale-x-100" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {t(key)}
@@ -128,7 +128,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-[#0f1923] text-white py-16">
+      <footer className="border-t-[3px] border-t-coral border-border bg-[#0f1923] text-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-10 mb-12">
             <div className="md:col-span-1">

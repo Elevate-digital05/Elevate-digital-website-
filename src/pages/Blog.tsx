@@ -86,7 +86,11 @@ const Blog = () => {
               <AnimatedSection key={title} delay={i * 80}>
                 <article className={`bg-card border border-border rounded-xl p-7 transition-all duration-300 h-full flex flex-col ${slug ? "hover:border-primary/30 hover:shadow-lg" : "opacity-60"}`}>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full emoji">
+                    <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full emoji ${
+                      ["SEO", "Marketing", "Pricing"].includes(category)
+                        ? "text-white bg-coral"
+                        : "text-primary bg-primary/10"
+                    }`}>
                       {emoji} {category}
                     </span>
                     <span className="text-xs text-muted-foreground">{date}</span>
