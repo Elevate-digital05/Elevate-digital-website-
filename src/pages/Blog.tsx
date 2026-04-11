@@ -5,6 +5,32 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const posts = [
+  // PUBLISHED
+  {
+    emoji: "💰",
+    category: "Pricing",
+    date: "April 2026",
+    title: "How Much Does a Website Cost in South Africa? (2026 Guide)",
+    excerpt: "Prices vary wildly — from R2,000 to R200,000. We break down what you actually get at each price point so you can make the right call for your budget.",
+    slug: "/blog/website-cost-south-africa",
+  },
+  {
+    emoji: "💬",
+    category: "Marketing",
+    date: "April 2026",
+    title: "How to Use WhatsApp to Get More Customers From Your Website",
+    excerpt: "A WhatsApp button on your site can be the single highest-converting element you add. Here's how to set it up right and what message to show first.",
+    slug: "/blog/whatsapp-customers-website",
+  },
+  {
+    emoji: "📱",
+    category: "Mobile",
+    date: "April 2026",
+    title: "Why Mobile-First Web Design Matters More in South Africa Than Anywhere Else",
+    excerpt: "Over 80% of South African internet users browse on mobile. If your site isn't built for phones first, you're losing the majority of your potential customers.",
+    slug: "/blog/mobile-first-web-design-south-africa",
+  },
+  // COMING SOON
   {
     emoji: "🌐",
     category: "Web Design",
@@ -29,32 +55,7 @@ const posts = [
     excerpt: "Not all websites are created equal. These are the five non-negotiables that separate a website that converts visitors into customers from one that doesn't.",
     slug: null,
   },
-  {
-    emoji: "💰",
-    category: "Pricing",
-    date: "May 2026",
-    title: "How Much Does a Website Cost in South Africa? (2026 Guide)",
-    excerpt: "Prices vary wildly — from R2,000 to R200,000. We break down what you actually get at each price point so you can make the right call for your budget.",
-    slug: "/blog/website-cost-south-africa",
-  },
-  {
-    emoji: "💬",
-    category: "Marketing",
-    date: "April 2026",
-    title: "How to Use WhatsApp to Get More Customers From Your Website",
-    excerpt: "A WhatsApp button on your site can be the single highest-converting element you add. Here's how to set it up right and what message to show first.",
-    slug: "/blog/whatsapp-customers-website",
-  },
-  {
-    emoji: "📱",
-    category: "Mobile",
-    date: "April 2026",
-    title: "Why Mobile-First Web Design Matters More in South Africa Than Anywhere Else",
-    excerpt: "Over 80% of South African internet users browse on mobile. If your site isn't built for phones first, you're losing the majority of your potential customers.",
-    slug: "/blog/mobile-first-web-design-south-africa",
-  },
 ];
-
 const Blog = () => {
   const { t } = useLanguage();
 
