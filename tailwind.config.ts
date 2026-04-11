@@ -2,7 +2,12 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -27,17 +32,11 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        "primary-glow": "hsl(var(--primary) / 0.15)",
-        "secondary-glow": "hsl(var(--secondary) / 0.15)",
         coral: {
           DEFAULT: "hsl(var(--coral))",
           hover: "hsl(var(--coral-hover))",
         },
-        mint: "hsl(var(--mint))",
-        "sky-info": "hsl(var(--sky-info))",
-        sage: "hsl(var(--sage))",
-        blush: "hsl(var(--blush))",
-        "navy-deep": "hsl(var(--navy-deep))",
+        "apple-gray": "hsl(var(--apple-gray))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -74,22 +73,22 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        apple: "0 2px 12px rgba(0,0,0,0.06)",
+        "apple-lg": "0 4px 24px rgba(0,0,0,0.08)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "whatsapp-pulse": {
           "0%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)" },
@@ -100,6 +99,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out forwards",
       },
     },
   },
