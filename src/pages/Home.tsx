@@ -152,11 +152,11 @@ const Home = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-primary text-primary-foreground py-28">
+      <section className="py-28" style={{ background: "#1d1d1f" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl">{t("cta.ready")}</h2>
-            <p className="mt-4 text-primary-foreground/70 text-lg">
+            <h2 className="text-3xl md:text-4xl text-white">{t("cta.ready")}</h2>
+            <p className="mt-4 text-lg" style={{ color: "#a1a1a6" }}>
               {t("cta.readySub")}
             </p>
             <Button asChild size="lg" className="mt-10 text-[17px] px-8 bg-coral text-white font-medium hover:bg-coral-hover" style={{ borderRadius: "980px" }}>
