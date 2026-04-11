@@ -84,7 +84,7 @@ const Blog = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
               <AnimatedSection key={title} delay={i * 80}>
-                <article className="bg-card border border-border rounded-xl p-7 hover:border-primary/30 hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <article className={`bg-card border border-border rounded-xl p-7 transition-all duration-300 h-full flex flex-col ${slug ? "hover:border-primary/30 hover:shadow-lg" : "opacity-60"}`}>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-semibold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full emoji">
                       {emoji} {category}
@@ -98,11 +98,10 @@ const Blog = () => {
                       {t("blog.readMore")} <ArrowRight className="ml-1 h-3.5 w-3.5" />
                     </Link>
                   ) : (
-                    <span className="inline-flex items-center text-sm font-medium text-muted-foreground/60">
+                    <span className="inline-flex items-center text-xs font-semibold text-muted-foreground bg-muted px-3 py-1 rounded-full w-fit">
                       {t("blog.comingSoon")}
                     </span>
                   )}
-                </article>
               </AnimatedSection>
             ))}
           </div>
