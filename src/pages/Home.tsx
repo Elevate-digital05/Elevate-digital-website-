@@ -112,7 +112,7 @@ const Home = () => {
       </section>
 
       {/* Why Elevate Digitals */}
-      <section className="py-20 md:py-28 bg-[#f8f9fa]">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-14">
@@ -144,7 +144,7 @@ const Home = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-[#f8f9fa]">
         <div className="max-w-6xl mx-auto px-6">
           <AnimatedSection>
             <div className="text-center mb-16">
