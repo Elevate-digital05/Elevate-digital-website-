@@ -48,24 +48,30 @@ const Home = () => {
       {/* Hero */}
       <section className="relative overflow-hidden py-32 md:py-44" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h1
-            className="tracking-tight text-white leading-tight max-w-4xl mx-auto"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
-          >
-            {t("hero.heading1")}
-            <span className="text-coral">{t("hero.heading2")}</span>
-          </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("hero.sub")}
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-coral text-white font-medium hover:bg-coral-hover text-[17px] px-8" style={{ borderRadius: "980px" }}>
-              <Link to="/packages">{t("hero.viewPackages")}</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="text-[17px] px-8 text-coral border-coral/30 hover:bg-coral/5 font-medium" style={{ borderRadius: "980px", background: "transparent" }}>
-              <Link to="/services">{t("hero.ourServices")}</Link>
-            </Button>
-          </div>
+          <AnimatedSection delay={100}>
+            <h1
+              className="tracking-tight text-white leading-tight max-w-4xl mx-auto"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: 600, letterSpacing: "-0.03em" }}
+            >
+              {t("hero.heading1")}
+              <span className="text-coral">{t("hero.heading2")}</span>
+            </h1>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("hero.sub")}
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={500}>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-coral text-white font-medium hover:bg-coral-hover text-[17px] px-8" style={{ borderRadius: "980px" }}>
+                <Link to="/packages">{t("hero.viewPackages")}</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="text-[17px] px-8 text-coral border-coral/30 hover:bg-coral/5 font-medium" style={{ borderRadius: "980px", background: "transparent" }}>
+                <Link to="/services">{t("hero.ourServices")}</Link>
+              </Button>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -80,11 +86,11 @@ const Home = () => {
               { value: "96%", labelKey: "stats.performance" },
               { value: "100%", labelKey: "stats.accessibility" },
               { value: "92%", labelKey: "stats.bestPractices" },
-            ].map(({ value, labelKey }) => (
-              <div key={labelKey}>
+            ].map(({ value, labelKey }, i) => (
+              <AnimatedSection key={labelKey} delay={i * 100}>
                 <div className="text-2xl md:text-3xl text-foreground" style={{ fontWeight: 600 }}>{value}</div>
                 <div className="text-xs text-muted-foreground mt-1">{t(labelKey)}</div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -110,8 +116,8 @@ const Home = () => {
               { emoji: "🛡️", titleKey: "why.secure", descKey: "why.secureDesc" },
               { emoji: "📍", titleKey: "why.whatsapp", descKey: "why.whatsappDesc" },
             ].map(({ emoji, titleKey, descKey }, i) => (
-              <AnimatedSection key={titleKey} delay={i * 100}>
-                <div className="bg-card rounded-[18px] p-8 text-center shadow-apple transition-all duration-300 hover:shadow-apple-lg" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
+              <AnimatedSection key={titleKey} delay={i * 100} variant="scale-up">
+                <div className="bg-card rounded-[18px] p-8 text-center shadow-apple transition-shadow duration-300 hover:shadow-apple-lg" style={{ border: "1px solid rgba(0,0,0,0.08)" }}>
                   <div className="text-4xl mb-5 emoji">{emoji}</div>
                   <h3 className="text-lg text-foreground mb-2" style={{ fontWeight: 600 }}>{t(titleKey)}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{t(descKey)}</p>
@@ -137,7 +143,7 @@ const Home = () => {
               { step: "03", titleKey: "how.build", descKey: "how.buildDesc" },
               { step: "04", titleKey: "how.launch", descKey: "how.launchDesc" },
             ].map(({ step, titleKey, descKey }, i) => (
-              <AnimatedSection key={step} delay={i * 150}>
+              <AnimatedSection key={step} delay={i * 150} variant="scale-up">
                 <div className="text-center">
                   <div className="w-16 h-16 rounded-full bg-coral text-white flex items-center justify-center mx-auto mb-6 text-xl shadow-apple" style={{ fontWeight: 600 }}>
                     {step}

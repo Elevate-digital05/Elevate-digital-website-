@@ -87,10 +87,14 @@ const Packages = () => {
 
       <section className="py-20 md:py-28 text-center relative overflow-hidden" style={{ background: "#1d1d1f" }}>
         <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl text-white">{t("packages.heading")}<span className="text-coral">{t("packages.heading2")}</span></h1>
-          <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("packages.sub").replace(/ZAR/g, currency.code)}
-          </p>
+          <AnimatedSection delay={100}>
+            <h1 className="text-4xl md:text-5xl text-white">{t("packages.heading")}<span className="text-coral">{t("packages.heading2")}</span></h1>
+          </AnimatedSection>
+          <AnimatedSection delay={300}>
+            <p className="mt-4 text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("packages.sub").replace(/ZAR/g, currency.code)}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -98,8 +102,8 @@ const Packages = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map(({ name, zarPrice, hasSuffix, subtitle, included, excluded, popular, ctaKey, link }, i) => (
-              <AnimatedSection key={name} delay={i * 100}>
-                <Card className={`bg-card relative h-full transition-all duration-300 rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-coral" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
+              <AnimatedSection key={name} delay={i * 100} variant="scale-up">
+                <Card className={`bg-card relative h-full transition-shadow duration-300 rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-coral" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                       <Badge className="bg-coral text-white text-xs px-3 py-1">{t("packages.mostPopular")}</Badge>
@@ -160,7 +164,7 @@ const Packages = () => {
           </AnimatedSection>
           <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {maintenance.map(({ name, price, popular, features }, i) => (
-              <AnimatedSection key={name} delay={i * 100}>
+              <AnimatedSection key={name} delay={i * 100} variant="scale-up">
                 <Card className={`bg-card relative h-full rounded-[18px] shadow-apple hover:shadow-apple-lg ${popular ? "border-2 border-coral" : ""}`} style={popular ? {} : { border: "1px solid rgba(0,0,0,0.08)" }}>
                   {popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
