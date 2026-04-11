@@ -79,7 +79,7 @@ const Blog = () => {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 bg-[#f8f9fa]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map(({ emoji, category, date, title, excerpt, slug }, i) => (
